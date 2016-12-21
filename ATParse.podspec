@@ -18,11 +18,12 @@ Pod::Spec.new do |s|
 
 
   s.platform     = :ios
+  s.ios.deployment_target = '9.0'
 
-  s.source       = { :path => '*.{h,a}' }
+  s.source       = { :git => 'git@code.aratech.org:ATParse/iOS.git' }
   #s.source       = { :git => "http://EXAMPLE/ATParse.git", :tag => "#{s.version}" }
 
-  s.source_files  = "ATParse", "ATParse/**/*.{h,m,swift}"
+  s.source_files  = "ATParse/**/*.{h,m,swift}"
 
   s.dependency "Parse"
   s.dependency "XCGLogger"
