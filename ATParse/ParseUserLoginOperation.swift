@@ -2,8 +2,8 @@
 //  ParseUserLoginOperation.swift
 //  ATParse
 //
-//  Created by Aratech iOS on 21/12/16.
-//  Copyright © 2016 AraTech. All rights reserved.
+//  Created by Nicolas Landa on 21/12/16.
+//  Copyright © 2016 Nicolas Landa. All rights reserved.
 //
 
 import Foundation
@@ -132,69 +132,73 @@ class LoginOperation: Operation {
     /// Realiza el sign up mediante el SDK de Facebook. Crea un nuevo usuario en el servidor Parse y le añade la información almacenada en Facebook sobre dicho usuario.
     private func facebookSignUp() {
         
-        PFFacebookUtils.logInInBackground(withReadPermissions: ["public_profile","email"]) { (user, error) in
+        // Debe hacerse en el thread principal, pues el SDK de Facebook muestra una nueva pantalla en la UI
+        DispatchQueue.main.async {
             
-            if let error = error as? NSError {
-                XCGLogger.error("Something went wrong when logging with Facebook")
-                self.error = UserError(withCode: error.code)
-            } else if let user = user {
-            
-                var requestParameters: [String:String] = [:]
+            PFFacebookUtils.logInInBackground(withReadPermissions: ["public_profile","email"]) { (user, error) in
                 
-                if case .facebook(let profileInfoRequestParameters) = self.type , let parameters = profileInfoRequestParameters {
-                    requestParameters["fields"] = parameters
-                } else {
-                    requestParameters["fields"] = "id, email, first_name, last_name"
-                }
-                
-                // Se le piden a Facebook los datos del usuario, para completar la información del registro
-                if let userDetails = FBSDKGraphRequest(graphPath: "me", parameters: requestParameters) {
+                if let error = error as? NSError {
+                    XCGLogger.error("Something went wrong when logging with Facebook")
+                    self.error = UserError(withCode: error.code)
+                } else if let user = user {
                     
-                    userDetails.start(completionHandler: { (connection, result, error) in
-                        if let error = error as? NSError {
-                            XCGLogger.error(error.localizedDescription)
-                            self.error = UserError(withCode: error.code)
-                        } else {
-                            if let result = result as? NSDictionary {
-                                
-                                let userId = result["id"] as! String
-                                let firstName = result["first_name"] as? String
-                                let lastName = result["last_name"] as? String
-                                let email = result["email"] as? String
-                                
-                                XCGLogger.info("Details from user with id: \(userId) successfully adquired")
-                                
-                                user.setValue(firstName, forKey: "first_name")
-                                user.setValue(lastName, forKey: "last_name")
-                                user.setValue(email, forKey: "email")
-                                
-                                user.saveInBackground { success, error in
-                                    XCGLogger.info("User \(user.description) \(error) updated")
-                                    if let error = error as? NSError {
-                                        self.error = UserError(withCode: error.code)
-                                    } else {
-                                        self.error = UserError.noError()
-                                    }
-                                }
+                    var requestParameters: [String:String] = [:]
+                    
+                    if case .facebook(let profileInfoRequestParameters) = self.type , let parameters = profileInfoRequestParameters {
+                        requestParameters["fields"] = parameters
+                    } else {
+                        requestParameters["fields"] = "id, email, first_name, last_name"
+                    }
+                    
+                    // Se le piden a Facebook los datos del usuario, para completar la información del registro
+                    if let userDetails = FBSDKGraphRequest(graphPath: "me", parameters: requestParameters) {
+                        
+                        userDetails.start(completionHandler: { (connection, result, error) in
+                            if let error = error as? NSError {
+                                XCGLogger.error(error.localizedDescription)
+                                self.error = UserError(withCode: error.code)
                             } else {
-                                XCGLogger.error("Could not cast the response to a Dictionary")
-                                self.error = UserError(withCode: 0)
+                                if let result = result as? NSDictionary {
+                                    
+                                    let userId = result["id"] as! String
+                                    let firstName = result["first_name"] as? String
+                                    let lastName = result["last_name"] as? String
+                                    let email = result["email"] as? String
+                                    
+                                    XCGLogger.info("Details from user with id: \(userId) successfully adquired")
+                                    
+                                    user.setValue(firstName, forKey: "first_name")
+                                    user.setValue(lastName, forKey: "last_name")
+                                    user.setValue(email, forKey: "email")
+                                    
+                                    user.saveInBackground { success, error in
+                                        XCGLogger.info("User \(user.description) \(error) updated")
+                                        if let error = error as? NSError {
+                                            self.error = UserError(withCode: error.code)
+                                        } else {
+                                            self.error = UserError.noError()
+                                        }
+                                    }
+                                } else {
+                                    XCGLogger.error("Could not cast the response to a Dictionary")
+                                    self.error = UserError(withCode: 0)
+                                }
                             }
-                        }
-                    })
+                        })
+                    } else {
+                        XCGLogger.error("Something occurred when creating the GraphRequest")
+                        self.error = UserError(withCode: 0)
+                    }
                 } else {
-                    XCGLogger.error("Something occurred when creating the GraphRequest")
-                    self.error = UserError(withCode: 0)
+                    // El usuario canceló el login
+                    XCGLogger.info("The user cancelled the Facebok logging process")
+                    self.error = .userCancelledFacebookLogin
                 }
-            } else {
-                // El usuario canceló el login
-                XCGLogger.info("The user cancelled the Facebok logging process")
-                self.error = .userCancelledFacebookLogin
-            }
-            
-            if let completion = self.completion {
-                self.completionQueue.async {
-                    completion(self.error,user)
+                
+                if let completion = self.completion {
+                    self.completionQueue.async {
+                        completion(self.error,user)
+                    }
                 }
             }
         }

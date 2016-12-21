@@ -2,8 +2,8 @@
 //  API.swift
 //  ATParse
 //
-//  Created by Aratech iOS on 21/12/16.
-//  Copyright © 2016 AraTech. All rights reserved.
+//  Created by Nicolas Landa on 21/12/16.
+//  Copyright © 2016 Nicolas Landa. All rights reserved.
 //
 
 import Foundation
@@ -35,7 +35,8 @@ open class ATParse {
     ///   - predicate: Predicado para la query, nulo por defecto
     ///   - completionQueue: Cola en la que ejecutar el bloque de terminación, principal por defecto.
     ///   - completion: Bloque de terminación.
-    public static func fetchObjects<T: PFObject>(withPredicate predicate: NSPredicate? = nil, completionQueue: DispatchQueue = .main, completion: FetchPFObjectsResult<T>? = nil) where T: PFSubclassing {
+    /// - Returns: Centinela para que el compilador pueda inferir el tipo T, NO USAR
+    public static func fetchObjects<T: PFObject>(withPredicate predicate: NSPredicate? = nil, completionQueue: DispatchQueue = .main, completion: FetchPFObjectsResult<T>? = nil)  -> T? where T: PFSubclassing {
         
         let operation: ParseClassObjectsDownloadOperation<T> = ParseClassObjectsDownloadOperation<T>(predicate: predicate, completionQueue: completionQueue)
         
@@ -44,5 +45,7 @@ open class ATParse {
         let queue = OperationQueues.parse
         
         queue.addOperation(operation)
+        
+        return operation.objects?.first
     }
 }

@@ -2,8 +2,8 @@
 //  ParseClassObjectsDownloadOperation.swift
 //  ATParse
 //
-//  Created by Aratech iOS on 21/12/16.
-//  Copyright © 2016 AraTech. All rights reserved.
+//  Created by Nicolas Landa on 21/12/16.
+//  Copyright © 2016 Nicolas Landa. All rights reserved.
 //
 
 import Foundation
@@ -13,19 +13,19 @@ import XCGLogger
 public typealias FetchPFObjectsResult<T: PFObject> = (ParseError?, [T]?)->Void
 
 /// Operación para la descarga de los objetos de una clase en un servidor Parse
-class ParseClassObjectsDownloadOperation<T: PFObject>: Operation where T: PFSubclassing {
+open class ParseClassObjectsDownloadOperation<T: PFObject>: Operation where T: PFSubclassing {
     
     /// Predicado de la query
     let predicate: NSPredicate?
     
     /// Objectos recabados
-    var objects: [T]?
+    public var objects: [T]?
     
     /// Error de la operación
     var error: ParseError?
     
     /// Bloque a ejecutar cuando finalice la operación
-    var completion: FetchPFObjectsResult<T>?
+    public var completion: FetchPFObjectsResult<T>?
     
     /// Cola en la que se ejecutará el bloque al término de la operación, principal por defecto
     var completionQueue: DispatchQueue
@@ -35,7 +35,7 @@ class ParseClassObjectsDownloadOperation<T: PFObject>: Operation where T: PFSubc
     /// - Parameters:
     ///   - predicate: Predicado para la query, nulo por defecto.
     ///   - completionQueue: Cola en la que ejecutar el bloque al término de la operación, principal por defecto.
-    init(predicate: NSPredicate? = nil, completionQueue: DispatchQueue = .main) {
+    public init(predicate: NSPredicate? = nil, completionQueue: DispatchQueue = .main) {
         self.predicate = predicate
         self.completionQueue = completionQueue
         

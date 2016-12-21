@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0811E8EEC462ABBAE2F3EAFB /* Pods_ATParseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFB999B3499923BE9BD36FE /* Pods_ATParseTests.framework */; };
-		9D4ACAF72BA0D45928BB7242 /* Pods_ATParse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE4DCDF6ED5A4682B9AE771 /* Pods_ATParse.framework */; };
+		BE7D11C281DDC87C2E240562 /* Pods_ATParse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE4DCDF6ED5A4682B9AE771 /* Pods_ATParse.framework */; };
 		EAE127871E0A8605009F41F5 /* ATParse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE1277D1E0A8605009F41F5 /* ATParse.framework */; };
 		EAE1278C1E0A8605009F41F5 /* ATParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE1278B1E0A8605009F41F5 /* ATParseTests.swift */; };
 		EAE1278E1E0A8605009F41F5 /* ATParse.h in Headers */ = {isa = PBXBuildFile; fileRef = EAE127801E0A8605009F41F5 /* ATParse.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -46,6 +46,7 @@
 		EAE1279E1E0A94B8009F41F5 /* ParseUserLoginOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseUserLoginOperation.swift; sourceTree = "<group>"; };
 		EAE127A01E0AA649009F41F5 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		EAE127A21E0AA901009F41F5 /* ParseOperationQueues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseOperationQueues.swift; sourceTree = "<group>"; };
+		EAE127B41E0AB289009F41F5 /* Pods_ChassApp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_ChassApp.framework; path = "../../Library/Developer/Xcode/DerivedData/ChassApp-ctqnfchhpuohsfduxjzozlrmgjby/Build/Products/Debug-iphonesimulator/Pods_ChassApp.framework"; sourceTree = "<group>"; };
 		F1999B0C7314353D36B9B8CE /* Pods-ATParseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATParseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATParseTests/Pods-ATParseTests.release.xcconfig"; sourceTree = "<group>"; };
 		F93141EF2B7F43401C7DC83D /* Pods-ATParseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATParseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATParseTests/Pods-ATParseTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D4ACAF72BA0D45928BB7242 /* Pods_ATParse.framework in Frameworks */,
+				BE7D11C281DDC87C2E240562 /* Pods_ATParse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +75,7 @@
 		7A62E2E4EEDDE73C844B251A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EAE127B41E0AB289009F41F5 /* Pods_ChassApp.framework */,
 				1AE4DCDF6ED5A4682B9AE771 /* Pods_ATParse.framework */,
 				3FFB999B3499923BE9BD36FE /* Pods_ATParseTests.framework */,
 			);
@@ -484,7 +486,7 @@
 				INFOPLIST_FILE = ATParse/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.AraTech.ATParse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.machukas.ATParse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -505,7 +507,7 @@
 				INFOPLIST_FILE = ATParse/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.AraTech.ATParse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.machukas.ATParse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -519,7 +521,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = ATParseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.AraTech.ATParseTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.machukas.ATParseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -532,7 +534,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = ATParseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.AraTech.ATParseTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.machukas.ATParseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

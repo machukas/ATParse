@@ -2,8 +2,8 @@
 //  Errors.swift
 //  ATParse
 //
-//  Created by Aratech iOS on 21/12/16.
-//  Copyright © 2016 AraTech. All rights reserved.
+//  Created by Nicolas Landa on 21/12/16.
+//  Copyright © 2016 Nicolas Landa. All rights reserved.
 //
 
 import Foundation
