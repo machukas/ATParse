@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0811E8EEC462ABBAE2F3EAFB /* Pods_ATParseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFB999B3499923BE9BD36FE /* Pods_ATParseTests.framework */; };
+		9D4ACAF72BA0D45928BB7242 /* Pods_ATParse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE4DCDF6ED5A4682B9AE771 /* Pods_ATParse.framework */; };
 		EAE127871E0A8605009F41F5 /* ATParse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE1277D1E0A8605009F41F5 /* ATParse.framework */; };
 		EAE1278C1E0A8605009F41F5 /* ATParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE1278B1E0A8605009F41F5 /* ATParseTests.swift */; };
 		EAE1278E1E0A8605009F41F5 /* ATParse.h in Headers */ = {isa = PBXBuildFile; fileRef = EAE127801E0A8605009F41F5 /* ATParse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EAE1279B1E0A8BD3009F41F5 /* ParseClassObjectsDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE1279A1E0A8BD3009F41F5 /* ParseClassObjectsDownloadOperation.swift */; };
+		EAE1279D1E0A8E8F009F41F5 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE1279C1E0A8E8F009F41F5 /* Errors.swift */; };
+		EAE1279F1E0A94B8009F41F5 /* ParseUserLoginOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE1279E1E0A94B8009F41F5 /* ParseUserLoginOperation.swift */; };
+		EAE127A11E0AA649009F41F5 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE127A01E0AA649009F41F5 /* API.swift */; };
+		EAE127A31E0AA901009F41F5 /* ParseOperationQueues.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE127A21E0AA901009F41F5 /* ParseOperationQueues.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +30,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		170CC95DD8896F1645C79D90 /* Pods-ATParse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATParse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATParse/Pods-ATParse.debug.xcconfig"; sourceTree = "<group>"; };
+		1AE4DCDF6ED5A4682B9AE771 /* Pods_ATParse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATParse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FFB999B3499923BE9BD36FE /* Pods_ATParseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATParseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79508CA6886BE344B6A4E8CA /* Pods-ATParse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATParse.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATParse/Pods-ATParse.release.xcconfig"; sourceTree = "<group>"; };
 		EAE1277D1E0A8605009F41F5 /* ATParse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ATParse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE127801E0A8605009F41F5 /* ATParse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATParse.h; sourceTree = "<group>"; };
 		EAE127811E0A8605009F41F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAE127861E0A8605009F41F5 /* ATParseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATParseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE1278B1E0A8605009F41F5 /* ATParseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATParseTests.swift; sourceTree = "<group>"; };
 		EAE1278D1E0A8605009F41F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAE127971E0A8A9F009F41F5 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		EAE1279A1E0A8BD3009F41F5 /* ParseClassObjectsDownloadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClassObjectsDownloadOperation.swift; sourceTree = "<group>"; };
+		EAE1279C1E0A8E8F009F41F5 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		EAE1279E1E0A94B8009F41F5 /* ParseUserLoginOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseUserLoginOperation.swift; sourceTree = "<group>"; };
+		EAE127A01E0AA649009F41F5 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		EAE127A21E0AA901009F41F5 /* ParseOperationQueues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseOperationQueues.swift; sourceTree = "<group>"; };
+		F1999B0C7314353D36B9B8CE /* Pods-ATParseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATParseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATParseTests/Pods-ATParseTests.release.xcconfig"; sourceTree = "<group>"; };
+		F93141EF2B7F43401C7DC83D /* Pods-ATParseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATParseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATParseTests/Pods-ATParseTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D4ACAF72BA0D45928BB7242 /* Pods_ATParse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,18 +64,41 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAE127871E0A8605009F41F5 /* ATParse.framework in Frameworks */,
+				0811E8EEC462ABBAE2F3EAFB /* Pods_ATParseTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A62E2E4EEDDE73C844B251A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1AE4DCDF6ED5A4682B9AE771 /* Pods_ATParse.framework */,
+				3FFB999B3499923BE9BD36FE /* Pods_ATParseTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDC0703321645916027D6CD2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				170CC95DD8896F1645C79D90 /* Pods-ATParse.debug.xcconfig */,
+				79508CA6886BE344B6A4E8CA /* Pods-ATParse.release.xcconfig */,
+				F93141EF2B7F43401C7DC83D /* Pods-ATParseTests.debug.xcconfig */,
+				F1999B0C7314353D36B9B8CE /* Pods-ATParseTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EAE127731E0A8605009F41F5 = {
 			isa = PBXGroup;
 			children = (
 				EAE1277F1E0A8605009F41F5 /* ATParse */,
 				EAE1278A1E0A8605009F41F5 /* ATParseTests */,
 				EAE1277E1E0A8605009F41F5 /* Products */,
+				BDC0703321645916027D6CD2 /* Pods */,
+				7A62E2E4EEDDE73C844B251A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,8 +114,10 @@
 		EAE1277F1E0A8605009F41F5 /* ATParse */ = {
 			isa = PBXGroup;
 			children = (
-				EAE127801E0A8605009F41F5 /* ATParse.h */,
-				EAE127811E0A8605009F41F5 /* Info.plist */,
+				EAE127A01E0AA649009F41F5 /* API.swift */,
+				EAE1279C1E0A8E8F009F41F5 /* Errors.swift */,
+				EAE127991E0A8B8F009F41F5 /* Operations */,
+				EAE127981E0A8AA5009F41F5 /* Resources */,
 			);
 			path = ATParse;
 			sourceTree = "<group>";
@@ -84,6 +129,26 @@
 				EAE1278D1E0A8605009F41F5 /* Info.plist */,
 			);
 			path = ATParseTests;
+			sourceTree = "<group>";
+		};
+		EAE127981E0A8AA5009F41F5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EAE127971E0A8A9F009F41F5 /* Podfile */,
+				EAE127811E0A8605009F41F5 /* Info.plist */,
+				EAE127801E0A8605009F41F5 /* ATParse.h */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		EAE127991E0A8B8F009F41F5 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				EAE127A21E0AA901009F41F5 /* ParseOperationQueues.swift */,
+				EAE1279E1E0A94B8009F41F5 /* ParseUserLoginOperation.swift */,
+				EAE1279A1E0A8BD3009F41F5 /* ParseClassObjectsDownloadOperation.swift */,
+			);
+			name = Operations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,10 +169,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAE127911E0A8605009F41F5 /* Build configuration list for PBXNativeTarget "ATParse" */;
 			buildPhases = (
+				2E808846BA6272D5F73D1595 /* [CP] Check Pods Manifest.lock */,
 				EAE127781E0A8605009F41F5 /* Sources */,
 				EAE127791E0A8605009F41F5 /* Frameworks */,
 				EAE1277A1E0A8605009F41F5 /* Headers */,
 				EAE1277B1E0A8605009F41F5 /* Resources */,
+				5DEE344BC80E2EE0A2F6BB64 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -122,9 +189,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAE127941E0A8605009F41F5 /* Build configuration list for PBXNativeTarget "ATParseTests" */;
 			buildPhases = (
+				D59505A918AE486F6EF09B5A /* [CP] Check Pods Manifest.lock */,
 				EAE127821E0A8605009F41F5 /* Sources */,
 				EAE127831E0A8605009F41F5 /* Frameworks */,
 				EAE127841E0A8605009F41F5 /* Resources */,
+				4173B673BC7E1296EE224B0A /* [CP] Embed Pods Frameworks */,
+				52DB744C20E8F71DBCC6C88D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -148,6 +218,7 @@
 				TargetAttributes = {
 					EAE1277C1E0A8605009F41F5 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					EAE127851E0A8605009F41F5 = {
@@ -191,11 +262,94 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2E808846BA6272D5F73D1595 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4173B673BC7E1296EE224B0A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATParseTests/Pods-ATParseTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		52DB744C20E8F71DBCC6C88D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATParseTests/Pods-ATParseTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5DEE344BC80E2EE0A2F6BB64 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATParse/Pods-ATParse-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D59505A918AE486F6EF09B5A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EAE127781E0A8605009F41F5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE1279D1E0A8E8F009F41F5 /* Errors.swift in Sources */,
+				EAE1279B1E0A8BD3009F41F5 /* ParseClassObjectsDownloadOperation.swift in Sources */,
+				EAE127A11E0AA649009F41F5 /* API.swift in Sources */,
+				EAE1279F1E0A94B8009F41F5 /* ParseUserLoginOperation.swift in Sources */,
+				EAE127A31E0AA901009F41F5 /* ParseOperationQueues.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +413,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -306,7 +460,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -319,7 +473,9 @@
 		};
 		EAE127921E0A8605009F41F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 170CC95DD8896F1645C79D90 /* Pods-ATParse.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -331,13 +487,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.AraTech.ATParse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		EAE127931E0A8605009F41F5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79508CA6886BE344B6A4E8CA /* Pods-ATParse.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -355,7 +514,9 @@
 		};
 		EAE127951E0A8605009F41F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F93141EF2B7F43401C7DC83D /* Pods-ATParseTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = ATParseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AraTech.ATParseTests;
@@ -366,7 +527,9 @@
 		};
 		EAE127961E0A8605009F41F5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1999B0C7314353D36B9B8CE /* Pods-ATParseTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = ATParseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AraTech.ATParseTests;
@@ -394,6 +557,7 @@
 				EAE127931E0A8605009F41F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EAE127941E0A8605009F41F5 /* Build configuration list for PBXNativeTarget "ATParseTests" */ = {
 			isa = XCConfigurationList;
@@ -402,6 +566,7 @@
 				EAE127961E0A8605009F41F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
