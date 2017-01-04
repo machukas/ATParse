@@ -18,6 +18,9 @@ open class ParseClassObjectsDownloadOperation<T: PFObject>: Operation where T: P
     /// Predicado de la query
     let predicate: NSPredicate?
     
+    /// PFQuery
+    let query: PFQuery<T>
+    
     /// Objectos recabados
     public var objects: [T]?
     
@@ -34,10 +37,15 @@ open class ParseClassObjectsDownloadOperation<T: PFObject>: Operation where T: P
     ///
     /// - Parameters:
     ///   - predicate: Predicado para la query, nulo por defecto.
+    ///   - includedKeys: Claves a incluir en la búsqueda para obtener los objetos relacionados
     ///   - completionQueue: Cola en la que ejecutar el bloque al término de la operación, principal por defecto.
-    public init(predicate: NSPredicate? = nil, completionQueue: DispatchQueue = .main) {
+    public init(predicate: NSPredicate? = nil, includingKeys includedKeys: [String] = [], completionQueue: DispatchQueue = .main) {
         self.predicate = predicate
         self.completionQueue = completionQueue
+        
+        self.query = PFQuery(className: T.parseClassName(), predicate: predicate)
+        
+        self.query.includeKeys(includedKeys)
         
         super.init()
         
@@ -47,12 +55,6 @@ open class ParseClassObjectsDownloadOperation<T: PFObject>: Operation where T: P
     }
     
     override open func main() {
-        
-        if self.isCancelled {
-            return
-        }
-        
-        let query: PFQuery<T> = PFQuery(className: T.parseClassName(), predicate: predicate)
         
         if self.isCancelled {
             return

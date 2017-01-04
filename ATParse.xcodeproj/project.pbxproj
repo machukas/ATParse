@@ -17,6 +17,7 @@
 		EAE1279F1E0A94B8009F41F5 /* ParseUserLoginOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE1279E1E0A94B8009F41F5 /* ParseUserLoginOperation.swift */; };
 		EAE127A11E0AA649009F41F5 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE127A01E0AA649009F41F5 /* API.swift */; };
 		EAE127A31E0AA901009F41F5 /* ParseOperationQueues.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE127A21E0AA901009F41F5 /* ParseOperationQueues.swift */; };
+		EAE127C01E0AEA1A009F41F5 /* ATParse.podspec in Resources */ = {isa = PBXBuildFile; fileRef = EAE127BF1E0AEA1A009F41F5 /* ATParse.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		EAE127A01E0AA649009F41F5 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		EAE127A21E0AA901009F41F5 /* ParseOperationQueues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseOperationQueues.swift; sourceTree = "<group>"; };
 		EAE127B41E0AB289009F41F5 /* Pods_ChassApp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_ChassApp.framework; path = "../../Library/Developer/Xcode/DerivedData/ChassApp-ctqnfchhpuohsfduxjzozlrmgjby/Build/Products/Debug-iphonesimulator/Pods_ChassApp.framework"; sourceTree = "<group>"; };
+		EAE127BF1E0AEA1A009F41F5 /* ATParse.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ATParse.podspec; sourceTree = SOURCE_ROOT; };
 		F1999B0C7314353D36B9B8CE /* Pods-ATParseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATParseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATParseTests/Pods-ATParseTests.release.xcconfig"; sourceTree = "<group>"; };
 		F93141EF2B7F43401C7DC83D /* Pods-ATParseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATParseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATParseTests/Pods-ATParseTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				EAE127971E0A8A9F009F41F5 /* Podfile */,
+				EAE127BF1E0AEA1A009F41F5 /* ATParse.podspec */,
 				EAE127811E0A8605009F41F5 /* Info.plist */,
 				EAE127801E0A8605009F41F5 /* ATParse.h */,
 			);
@@ -252,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE127C01E0AEA1A009F41F5 /* ATParse.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
