@@ -12,10 +12,10 @@ import XCGLogger
 /// Colas disponibles para las operaciones:
 public struct OperationQueues {
     /// Cola para las operaciones relacionadas con el servidor Parse
-    public static var parse: OperationQueue {
+    public static var parse: OperationQueue = {
         let queue = OperationQueue()
         queue.name = "ParseOperationsQueue"
         XCGLogger.info("Created \(queue.description) operation queue")
         return queue
-    }
+    }()
 }
