@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ATParse"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "Library for easy Parse server interaction."
   s.description  = "This library makes it easy to fetch data from a Parse server"
   s.homepage     = "http://EXAMPLE/ATParse"
@@ -21,7 +21,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
 
   s.source       = { :git => 'git@code.aratech.org:ATParse/iOS.git' }
-  #s.source       = { :git => "http://EXAMPLE/ATParse.git", :tag => "#{s.version}" }
 
   s.source_files  = "ATParse/**/*.{h,m,swift}"
 
