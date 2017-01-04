@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0811E8EEC462ABBAE2F3EAFB /* Pods_ATParseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFB999B3499923BE9BD36FE /* Pods_ATParseTests.framework */; };
 		BE7D11C281DDC87C2E240562 /* Pods_ATParse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE4DCDF6ED5A4682B9AE771 /* Pods_ATParse.framework */; };
+		EA09D2D51E1D6171008753B2 /* ATParseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA09D2D41E1D6171008753B2 /* ATParseClass.swift */; };
 		EAE127871E0A8605009F41F5 /* ATParse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE1277D1E0A8605009F41F5 /* ATParse.framework */; };
 		EAE1278C1E0A8605009F41F5 /* ATParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE1278B1E0A8605009F41F5 /* ATParseTests.swift */; };
 		EAE1278E1E0A8605009F41F5 /* ATParse.h in Headers */ = {isa = PBXBuildFile; fileRef = EAE127801E0A8605009F41F5 /* ATParse.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -35,6 +36,7 @@
 		1AE4DCDF6ED5A4682B9AE771 /* Pods_ATParse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATParse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFB999B3499923BE9BD36FE /* Pods_ATParseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATParseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79508CA6886BE344B6A4E8CA /* Pods-ATParse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATParse.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATParse/Pods-ATParse.release.xcconfig"; sourceTree = "<group>"; };
+		EA09D2D41E1D6171008753B2 /* ATParseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATParseClass.swift; sourceTree = "<group>"; };
 		EAE1277D1E0A8605009F41F5 /* ATParse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ATParse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE127801E0A8605009F41F5 /* ATParse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATParse.h; sourceTree = "<group>"; };
 		EAE127811E0A8605009F41F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			children = (
 				EAE127A01E0AA649009F41F5 /* API.swift */,
 				EAE1279C1E0A8E8F009F41F5 /* Errors.swift */,
+				EA09D2D41E1D6171008753B2 /* ATParseClass.swift */,
 				EAE127991E0A8B8F009F41F5 /* Operations */,
 				EAE127981E0A8AA5009F41F5 /* Resources */,
 			);
@@ -352,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAE1279D1E0A8E8F009F41F5 /* Errors.swift in Sources */,
+				EA09D2D51E1D6171008753B2 /* ATParseClass.swift in Sources */,
 				EAE1279B1E0A8BD3009F41F5 /* ParseClassObjectsDownloadOperation.swift in Sources */,
 				EAE127A11E0AA649009F41F5 /* API.swift in Sources */,
 				EAE1279F1E0A94B8009F41F5 /* ParseUserLoginOperation.swift in Sources */,
