@@ -1,5 +1,5 @@
 //
-//  ATParseClass.swift
+//  ATParseObject.swift
 //  ATParse
 //
 //  Created by Nicolas Landa on 4/1/17.
