@@ -14,6 +14,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "41973F4AA0BC3489B4C2E560176B0022"
+               BuildableName = "Pods_ATParseTests.framework"
+               BlueprintName = "Pods-ATParseTests"
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "EAE1277C1E0A8605009F41F5"
                BuildableName = "ATParse.framework"
                BlueprintName = "ATParse"

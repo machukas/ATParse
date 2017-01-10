@@ -37,6 +37,7 @@
 		3FFB999B3499923BE9BD36FE /* Pods_ATParseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATParseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79508CA6886BE344B6A4E8CA /* Pods-ATParse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATParse.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATParse/Pods-ATParse.release.xcconfig"; sourceTree = "<group>"; };
 		EA09D2D41E1D6171008753B2 /* ATParseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATParseObject.swift; sourceTree = "<group>"; };
+		EA7EBB641E24F17A00EFD183 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		EAE1277D1E0A8605009F41F5 /* ATParse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ATParse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE127801E0A8605009F41F5 /* ATParse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATParse.h; sourceTree = "<group>"; };
 		EAE127811E0A8605009F41F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -145,6 +146,7 @@
 				EAE127BF1E0AEA1A009F41F5 /* ATParse.podspec */,
 				EAE127811E0A8605009F41F5 /* Info.plist */,
 				EAE127801E0A8605009F41F5 /* ATParse.h */,
+				EA7EBB641E24F17A00EFD183 /* .travis.yml */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

@@ -1,0 +1,4 @@
+language: objective-c  #1
+osx_image: xcode8.2 #2
+script:
+    - xcodebuild test -workspace ATParse.xcworkspace -scheme ATParse -sdk iphonesimulator -destination "OS=10.0,name=iPhone SE"
