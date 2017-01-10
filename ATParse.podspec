@@ -9,8 +9,8 @@
 Pod::Spec.new do |s|
 
   s.name         = "ATParse"
-  s.version      = "1.0.2"
-  s.summary      = "Library for easy Parse server interaction."
+  s.version      = "1.0.3"
+  s.summary      = "Library for easy Parse Server interaction."
   s.description  = "This library makes it easy to fetch data from a Parse server"
   s.homepage     = "http://EXAMPLE/ATParse"
   s.license      = "MIT"
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.ios.deployment_target = '9.0'
 
-  s.source       = { :git => 'git@code.aratech.org:ATParse/iOS.git' }
+  s.source       = { :git => 'https://github.com/machukas/ATParse.git' }
 
   s.source_files  = "ATParse/**/*.{h,m,swift}"
 

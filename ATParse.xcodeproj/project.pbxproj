@@ -40,6 +40,7 @@
 		EA09D2D41E1D6171008753B2 /* ATParseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATParseObject.swift; sourceTree = "<group>"; };
 		EA7EBB641E24F17A00EFD183 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		EA7EBB691E2510AB00EFD183 /* DownloadOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadOperationTests.swift; sourceTree = "<group>"; };
+		EA7EBB6D1E25358000EFD183 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = SOURCE_ROOT; };
 		EAE1277D1E0A8605009F41F5 /* ATParse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ATParse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE127801E0A8605009F41F5 /* ATParse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATParse.h; sourceTree = "<group>"; };
 		EAE127811E0A8605009F41F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -150,6 +151,7 @@
 				EAE127811E0A8605009F41F5 /* Info.plist */,
 				EAE127801E0A8605009F41F5 /* ATParse.h */,
 				EA7EBB641E24F17A00EFD183 /* .travis.yml */,
+				EA7EBB6D1E25358000EFD183 /* CHANGELOG.md */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
