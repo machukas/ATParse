@@ -1,4 +1,4 @@
 language: objective-c  #1
 osx_image: xcode8.2 #2
-xcode_workspace: ATParse.xcworkspace #3
-xcode_scheme: ATParse #4
+script:
+    - xcodebuild test -scheme ATParse -sdk iphonesimulator
