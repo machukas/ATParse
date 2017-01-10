@@ -12,13 +12,22 @@ import XCGLogger
 
 open class ATParse {
     
+    /// Política de cache
+    private let cachePolicy: PFCachePolicy
+    
+    ///
+    /// - Parameter cachePolicy: Política de cache a aplicar en las peticiones, ignorar cache por defecto
+    public init(withCachePolicy cachePolicy: PFCachePolicy = .ignoreCache) {
+        self.cachePolicy = cachePolicy
+    }
+    
     /// Realiza el login en el servidor Parse
     ///
     /// - Parameters:
     ///   - type: Tipo de login
     ///   - queue: Cola en la que ejecutar el bloque de terminación, principal por defecto
     ///   - completion: Bloque de terminación, nulo por defecto
-    public static func login(_ type: LoginType, queue: DispatchQueue = .main, completion: UserLogResult? = nil) {
+    public func login(_ type: LoginType, queue: DispatchQueue = .main, completion: UserLogResult? = nil) {
         
         let loginOperation = LoginOperation(type, completionQueue: queue)
         loginOperation.completion = completion
@@ -33,13 +42,13 @@ open class ATParse {
     ///
     /// - Parameters:
     ///   - predicate: Predicado para la query, nulo por defecto
-    ///   - includedKeys: Claves a incluir en la búsqueda para obtener los objetos relacionados
-    ///   - completionQueue: Cola en la que ejecutar el bloque de terminación, principal por defecto.
-    ///   - completion: Bloque de terminación.
+    ///   - includedKeys: Claves a incluir en la búsqueda para obtener los objetos relacionados, ninguna por defecto
+    ///   - completionQueue: Cola en la que ejecutar el bloque de terminación, principal por defecto
+    ///   - completion: Bloque de terminación, nulo por defecto
     /// - Returns: Centinela para que el compilador pueda inferir el tipo T, NO USAR
-    public static func fetchObjects<T: PFObject>(withPredicate predicate: NSPredicate? = nil, includingKeys includedKeys: [String] = [], completionQueue: DispatchQueue = .main, completion: FetchPFObjectsResult<T>? = nil)  -> T? where T: PFSubclassing {
+    public func fetchObjects<T: PFObject>(withPredicate predicate: NSPredicate? = nil, includingKeys includedKeys: [String] = [], completionQueue: DispatchQueue = .main, completion: FetchPFObjectsResult<T>? = nil)  -> T? where T: PFSubclassing {
         
-        let operation: ParseClassObjectsDownloadOperation<T> = ParseClassObjectsDownloadOperation<T>(predicate: predicate, includingKeys: includedKeys, completionQueue: completionQueue)
+        let operation: ParseClassObjectsDownloadOperation<T> = ParseClassObjectsDownloadOperation<T>(predicate: predicate, includingKeys: includedKeys, cachePolicy: self.cachePolicy , completionQueue: completionQueue)
         
         operation.completion = completion
         

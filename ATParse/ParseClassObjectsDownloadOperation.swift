@@ -21,6 +21,11 @@ open class ParseClassObjectsDownloadOperation<T: PFObject>: Operation where T: P
     /// PFQuery
     let query: PFQuery<T>
     
+    /// Si hay un resultado de la operación en cache
+    public var hasCachedResult: Bool {
+        return self.query.hasCachedResult
+    }
+    
     /// Objectos recabados
     public var objects: [T]?
     
@@ -38,8 +43,9 @@ open class ParseClassObjectsDownloadOperation<T: PFObject>: Operation where T: P
     /// - Parameters:
     ///   - predicate: Predicado para la query, nulo por defecto.
     ///   - includedKeys: Claves a incluir en la búsqueda para obtener los objetos relacionados
-    ///   - completionQueue: Cola en la que ejecutar el bloque al término de la operación, principal por defecto.
-    public init(predicate: NSPredicate? = nil, includingKeys includedKeys: [String] = [], completionQueue: DispatchQueue = .main) {
+    ///   - cachePolicy: Política de cache, ignorar cache por defecto
+    ///   - completionQueue: Cola en la que ejecutar el bloque al término de la operación, principal por defecto
+    public init(predicate: NSPredicate? = nil, includingKeys includedKeys: [String] = [], cachePolicy: PFCachePolicy = .ignoreCache, completionQueue: DispatchQueue = .main) {
         self.predicate = predicate
         self.completionQueue = completionQueue
         
@@ -47,13 +53,15 @@ open class ParseClassObjectsDownloadOperation<T: PFObject>: Operation where T: P
         
         self.query.includeKeys(includedKeys)
         
+        self.query.cachePolicy = cachePolicy
+        
         super.init()
         
         self.completionBlock = {
             XCGLogger.info("ParseClassObjectsDownloadOperation of type \(T.parseClassName()) finished")
         }
     }
-    
+
     override open func main() {
         
         if self.isCancelled {
