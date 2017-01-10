@@ -16,8 +16,8 @@ open class ATParse {
     private let cachePolicy: PFCachePolicy
     
     ///
-    /// - Parameter cachePolicy: Política de cache a aplicar en las peticiones
-    public init(withCachePolicy cachePolicy: PFCachePolicy) {
+    /// - Parameter cachePolicy: Política de cache a aplicar en las peticiones, ignorar cache por defecto
+    public init(withCachePolicy cachePolicy: PFCachePolicy = .ignoreCache) {
         self.cachePolicy = cachePolicy
     }
     
