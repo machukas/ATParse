@@ -11,24 +11,27 @@ import Parse
 import XCGLogger
 @testable import ATParse
 
-internal class ATParseObjectSubclass: ATParseObject, PFSubclassing {
+/// Contiene las distintas configuraciones para conectar con un servidor Parse
+public struct ParseConfiguration {
+    /// Servidor de prueba alojado en Heroku
+    struct Heroku {
+        static let appID = "testingParseServer"
+        static let clientKey = "123456789"
+        static let server = "http://testing-purposes-parse-server.herokuapp.com/parse"
+    }
+}
+
+class ATParseObjectSubclass: ATParseObject, PFSubclassing {
     
     class func parseClassName() -> String {
-        return "Tests"
+        return "Test"
     }
 }
 
 class ATParseTests: XCTestCase {
     
-    /// Contiene las distintas configuraciones para conectar con un servidor Parse
-    public struct ParseConfiguration {
-        /// Servidor de prueba alojado en Heroku
-        struct Heroku {
-            static let appID = "testingParseServer"
-            static let clientKey = "123456789"
-            static let server = "http://testing-purposes-parse-server.herokuapp.com/parse"
-        }
-    }
+    var ignoringCacheATParse: ATParse = ATParse(withCachePolicy: .ignoreCache)
+    var cacheElseNetworkATParse: ATParse = ATParse(withCachePolicy: .cacheElseNetwork)
     
     override func setUp() {
         super.setUp()
@@ -42,7 +45,6 @@ class ATParseTests: XCTestCase {
                 configuration.applicationId = parseConfiguration.appID
                 configuration.clientKey = parseConfiguration.clientKey
                 configuration.server = parseConfiguration.server
-                configuration.isLocalDatastoreEnabled = true
             }
             
             Parse.initialize(with: configuration)
@@ -65,10 +67,11 @@ class ATParseTests: XCTestCase {
     
         let succesfullFetchExpectation = expectation(description: "Successfully fetched into \(Parse.currentConfiguration()?.server))")
         
-        let _: PFUser? = ATParse.fetchObjects() { (error, users) in
+        let _: ATParseObjectSubclass? = self.ignoringCacheATParse.fetchObjects() { (error, objects) in
             
             XCTAssert(error == nil)
-            XCGLogger.info("\(users)")
+            XCGLogger.info("\(objects)")
+            
             succesfullFetchExpectation.fulfill()
         }
         
@@ -85,7 +88,7 @@ class ATParseTests: XCTestCase {
         
         let succesfullLoginExpectation = expectation(description: "Successfully logging into \(Parse.currentConfiguration()?.server))")
         
-        ATParse.login(.normal(username: "apple", password: "12345")) { (error: UserError?, user: PFUser?) in
+        self.ignoringCacheATParse.login(.normal(username: "apple", password: "12345")) { (error: UserError?, user: PFUser?) in
             
             XCTAssert(error == UserError.noError() && user?.value(forKey: "username") as? String == "apple")
             succesfullLoginExpectation.fulfill()
