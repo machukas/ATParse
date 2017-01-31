@@ -43,10 +43,11 @@ open class ATParse {
     /// - Parameters:
     ///   - predicate: Predicado para la query, nulo por defecto
     ///   - includedKeys: Claves a incluir en la búsqueda para obtener los objetos relacionados, ninguna por defecto
+    ///   - async: Si la operación ha de realizarse de manera asíncrona, `true` por defecto
     ///   - completionQueue: Cola en la que ejecutar el bloque de terminación, principal por defecto
     ///   - completion: Bloque de terminación, nulo por defecto
     /// - Returns: Centinela para que el compilador pueda inferir el tipo T, NO USAR
-    public func fetchObjects<T: PFObject>(withPredicate predicate: NSPredicate? = nil, includingKeys includedKeys: [String] = [], completionQueue: DispatchQueue = .main, completion: FetchPFObjectsResult<T>? = nil)  -> T? where T: PFSubclassing {
+    public func fetchObjects<T: PFObject>(withPredicate predicate: NSPredicate? = nil, includingKeys includedKeys: [String] = [], async: Bool = true, completionQueue: DispatchQueue = .main, completion: FetchPFObjectsResult<T>? = nil)  -> T? where T: PFSubclassing {
         
         let operation: ParseClassObjectsDownloadOperation<T> = ParseClassObjectsDownloadOperation<T>(predicate: predicate, includingKeys: includedKeys, cachePolicy: self.cachePolicy , completionQueue: completionQueue)
         
@@ -55,6 +56,10 @@ open class ATParse {
         let queue = OperationQueues.parse
         
         queue.addOperation(operation)
+        
+        if !async {
+            queue.waitUntilAllOperationsAreFinished()
+        }
         
         return operation.objects?.first
     }

@@ -57,6 +57,11 @@ class ATParseTests: XCTestCase {
         super.tearDown()
     }
     
+    func testSyncFetch() {
+        let objects: ATParseObjectSubclass? = self.ignoringCacheATParse.fetchObjects(async: false)
+        XCTAssert(objects?.property(forKey: "name") == "test")
+    }
+    
     func testATParseObjectSubclass() {
         
         let test: ATParseObjectSubclass = ATParseObjectSubclass()
@@ -75,7 +80,7 @@ class ATParseTests: XCTestCase {
             succesfullFetchExpectation.fulfill()
         }
         
-        waitForExpectations(timeout: 10.0) { error in
+        waitForExpectations(timeout: 20.0) { error in
             if let error = error {
                 XCGLogger.error("Error: \(error.localizedDescription)")
             }
@@ -94,7 +99,7 @@ class ATParseTests: XCTestCase {
             succesfullLoginExpectation.fulfill()
         }
 
-        waitForExpectations(timeout: 10.0) { error in
+        waitForExpectations(timeout: 20.0) { error in
             if let error = error {
                 XCGLogger.error("Error: \(error.localizedDescription)")
             }
