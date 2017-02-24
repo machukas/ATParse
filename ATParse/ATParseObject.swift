@@ -10,8 +10,21 @@ import UIKit
 import Parse
 import XCGLogger
 
-/// Provee de operaciones basicas genéricas.
-open class ATParseObject: PFObject {
+/// Un tipo Parse con una representación textual personalizada. Este protocolo es necesario pues la variable `description` ya es usada por `PFObject`
+public protocol ParseCustomStringConvertible {
+    /// Representación textual del objeto `Parse`. Por defecto valor de la clave `name` del objeto
+    var itemDescription: String { get }
+}
+
+public extension ParseCustomStringConvertible where Self: ATParseObject {
+    
+    public var itemDescription: String {
+        return self.property(forKey: "name") ?? ""
+    }
+}
+
+/// Provee de operaciones básicas genéricas.
+open class ATParseObject: PFObject, ParseCustomStringConvertible {
     
     /// Recupera una propiedad de tipo `T` del PFObject
     ///

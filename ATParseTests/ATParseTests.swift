@@ -65,7 +65,17 @@ class ATParseTests: XCTestCase {
     func testATParseObjectSubclass() {
         
         let test: ATParseObjectSubclass = ATParseObjectSubclass()
+        
         XCTAssert(test.property(forKey: "name")==nil)
+    }
+    
+    func testParseCustomStringConvertible() {
+        
+        let test: ATParseObjectSubclass = ATParseObjectSubclass()
+        
+        test.setValue("aName", forKey: "name")
+        
+        XCTAssert((test.itemDescription)=="aName")
     }
     
     func testATParseFetch() {
