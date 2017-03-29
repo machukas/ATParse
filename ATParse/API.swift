@@ -11,6 +11,9 @@ import Parse
 import XCGLogger
 
 open class ATParse {
+	
+	/// Instancia por defecto, con configuración de cache ignorar cache.
+	public static let `default`: ATParse = ATParse()
     
     /// Política de cache
     private let cachePolicy: PFCachePolicy
