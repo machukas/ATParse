@@ -9,6 +9,8 @@ target 'ATParse' do
 
   pod 'Parse'
   
+  pod 'Fabric'
+  
   pod 'XCGLogger'
   
   pod 'ParseTwitterUtils'
