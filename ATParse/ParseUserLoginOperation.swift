@@ -15,7 +15,7 @@ import XCGLogger
 /// Tipos de login
 ///
 /// - normal: Login normal contra el servidor Parse, lleva asociados nombre y contraseña
-/// - facebook: Login mediante Facebook, lleva asociadas las claves de los valores que se desean obtener de Facebook acerca del usuario, por defecto: `"id, email, first_name, last_name"`
+/// - facebook: Login mediante Facebook, lleva asociadas las claves de los valores que se desean obtener de Facebook acerca del usuario, por defecto: `"id, email, first_name, last_name, genre, age_range, picture"`
 /// - twitter: Login mediante Twitter
 public enum LoginType {
     case normal(username: String, password: String)
@@ -23,7 +23,8 @@ public enum LoginType {
     case twitter
 }
 
-public typealias UserLogResult = (UserError?, PFUser?)->Void
+/// Closure al completarse el login. userInfo contiene la información del usuario recabada del servicio de login usado, i.e: Facebook.
+public typealias UserLogResult = (_ error: UserError?, _ user: PFUser?, _ userInfo: [String:Any]?)->Void
 
 /// Operación de login, se inicializa con el tipo que se desee realizar el mismo.
 class LoginOperation: Operation {
@@ -90,7 +91,7 @@ class LoginOperation: Operation {
             
             if let completion = self.completion {
                 self.completionQueue.async {
-                    completion(self.error,user)
+                    completion(self.error,user, nil)
                 }
             }
         }
@@ -123,7 +124,7 @@ class LoginOperation: Operation {
             
             if let completion = self.completion {
                 self.completionQueue.async {
-                    completion(self.error,user)
+                    completion(self.error,user, nil)
                 }
             }
         }
@@ -206,27 +207,37 @@ class LoginOperation: Operation {
 											} else {
 												self.error = UserError.noError()
 											}
+											
+											self.completionQueue.async {
+												self.completion?(self.error,user, result as? [String:Any])
+											}
 										}
 									} else {
 										XCGLogger.error("Could not cast the response to a Dictionary")
 										self.error = UserError(withCode: 0)
+										
+										self.completionQueue.async {
+											self.completion?(self.error,user, nil)
+										}
 									}
 								}
 							})
 						} else {
 							XCGLogger.error("Something occurred when creating the GraphRequest")
 							self.error = UserError(withCode: 0)
+							
+							self.completionQueue.async {
+								self.completion?(self.error,user, nil)
+							}
 						}
 					}
 				} else {
 					// El usuario canceló el login
 					XCGLogger.info("The user cancelled the Facebok logging process")
 					self.error = .userCancelledFacebookLogin
-				}
-				
-				if let completion = self.completion {
+					
 					self.completionQueue.async {
-						completion(self.error,user)
+						self.completion?(self.error,user, nil)
 					}
 				}
 			}
