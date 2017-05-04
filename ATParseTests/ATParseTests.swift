@@ -80,12 +80,12 @@ class ATParseTests: XCTestCase {
     
     func testATParseFetch() {
     
-        let succesfullFetchExpectation = expectation(description: "Successfully fetched into \(Parse.currentConfiguration()?.server))")
+        let succesfullFetchExpectation = expectation(description: "Successfully fetched into \(Parse.currentConfiguration()?.server ?? ""))")
         
         let _: ATParseObjectSubclass? = self.ignoringCacheATParse.fetchObjects() { (error, objects) in
             
             XCTAssert(error == nil)
-            XCGLogger.info("\(objects)")
+            XCGLogger.info("\(objects ?? [])")
             
             succesfullFetchExpectation.fulfill()
         }
@@ -96,15 +96,57 @@ class ATParseTests: XCTestCase {
             }
         }
     }
-    
+	
+	func testATParseFullFetch() {
+		
+		let succesfullFetchExpectation = expectation(description: "Successfully fetched into \(Parse.currentConfiguration()?.server ?? ""))")
+		
+		let _: ATParseObjectSubclass? = self.ignoringCacheATParse.fetchObjects(page: 0) { (error, objects) in
+			
+			XCTAssert(error == nil)
+			XCTAssert(objects!.count > 1000)
+			
+			XCGLogger.info("\(objects ?? [])")
+			
+			succesfullFetchExpectation.fulfill()
+		}
+		
+		waitForExpectations(timeout: 20.0) { error in
+			if let error = error {
+				XCGLogger.error("Error: \(error.localizedDescription)")
+			}
+		}
+	}
+	
+	func testATParsePaginatedFetch() {
+		
+		let succesfullFetchExpectation = expectation(description: "Successfully fetched into \(Parse.currentConfiguration()?.server ?? ""))")
+		
+		let _: ATParseObjectSubclass? = self.ignoringCacheATParse.fetchObjects(page: 2, orderedBy: [(.descending, "index")]) { (error, objects) in
+			
+			XCTAssert(error == nil)
+			XCTAssert(objects!.count == 100)
+			
+			XCGLogger.info("\(objects ?? [])")
+			
+			succesfullFetchExpectation.fulfill()
+		}
+		
+		waitForExpectations(timeout: 20.0) { error in
+			if let error = error {
+				XCGLogger.error("Error: \(error.localizedDescription)")
+			}
+		}
+	}
+	
     func testATParseLoginAPI() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
-        let succesfullLoginExpectation = expectation(description: "Successfully logging into \(Parse.currentConfiguration()?.server))")
+        let succesfullLoginExpectation = expectation(description: "Successfully logging into \(Parse.currentConfiguration()?.server ?? ""))")
         
-        self.ignoringCacheATParse.login(.normal(username: "apple", password: "12345")) { (error: UserError?, user: PFUser?) in
-            
+		self.ignoringCacheATParse.login(.normal(username: "apple", password: "12345")) { (error: UserError?, user: PFUser?, _) in
+			
             XCTAssert(error == UserError.noError() && user?.value(forKey: "username") as? String == "apple")
             succesfullLoginExpectation.fulfill()
         }

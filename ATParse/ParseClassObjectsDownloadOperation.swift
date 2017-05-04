@@ -11,15 +11,35 @@ import Parse
 import XCGLogger
 
 public typealias FetchPFObjectsResult<T: PFObject> = (ParseError?, [T]?)->Void
+public typealias OrderBy = (direction: OrderDirection, key: String)
+
+public enum OrderDirection {
+	case ascending
+	case descending
+}
+
+/// Tamaño de página por defecto
+let defaultPageSize: Int = 100
+/// Tamaño máximo de página
+let maxPageSize: Int = 1000
 
 /// Operación para la descarga de los objetos de una clase en un servidor Parse
 open class ParseClassObjectsDownloadOperation<T: PFObject>: Operation where T: PFSubclassing {
-    
+	
     /// Predicado de la query
     let predicate: NSPredicate?
     
     /// PFQuery
     let query: PFQuery<T>
+	
+	/// Número de elementos máximos por petición, `100` por defecto, `1000` máximo. Si 0
+	var pageSize: Int
+	
+	/// Página pedida. Si la página es 2, se recabarán los segundos `pageSize` elementos. Si se desean todos los objetos, pasar `0`.
+	let page: Int
+	
+	/// Ordenación de los resultados de la query
+	let orderBy: [OrderBy]
     
     /// Si hay un resultado de la operación en cache
     public var hasCachedResult: Bool {
@@ -41,11 +61,14 @@ open class ParseClassObjectsDownloadOperation<T: PFObject>: Operation where T: P
     ///
     ///
     /// - Parameters:
-    ///   - predicate: Predicado para la query, nulo por defecto.
-    ///   - includedKeys: Claves a incluir en la búsqueda para obtener los objetos relacionados
-    ///   - cachePolicy: Política de cache, ignorar cache por defecto
-    ///   - completionQueue: Cola en la que ejecutar el bloque al término de la operación, principal por defecto
-    public init(predicate: NSPredicate? = nil, includingKeys includedKeys: [String] = [], cachePolicy: PFCachePolicy = .ignoreCache, completionQueue: DispatchQueue = .main) {
+    ///   - predicate:			Predicado para la query, nulo por defecto.
+    ///   - includedKeys:		Claves a incluir en la búsqueda para obtener los objetos relacionados
+    ///   - cachePolicy:		Política de cache, ignorar cache por defecto
+	///   - pageSize:			Número de elementos máximos por petición, `100` por defecto
+	///   - page:				Página que se desea obtener. Si la página es 2, se recabarán los segundos `pageSize` elementos. `1` por defecto. Si se desean todos los objetos, pasar `0`.
+	///   - orderBy:			Ordenación de los resultados de la query
+    ///   - completionQueue:	Cola en la que ejecutar el bloque al término de la operación, principal por defecto
+	public init(predicate: NSPredicate? = nil, includingKeys includedKeys: [String] = [], cachePolicy: PFCachePolicy = .ignoreCache, pageSize: Int = defaultPageSize, page: Int = 1, orderBy: [OrderBy] = [], completionQueue: DispatchQueue = .main) {
         self.predicate = predicate
         self.completionQueue = completionQueue
         
@@ -54,7 +77,13 @@ open class ParseClassObjectsDownloadOperation<T: PFObject>: Operation where T: P
         self.query.includeKeys(includedKeys)
         
         self.query.cachePolicy = cachePolicy
-        
+		
+		self.page = page
+		
+		self.pageSize = page == 0 ? maxPageSize : pageSize
+		
+		self.orderBy = orderBy
+		
         super.init()
         
         self.completionBlock = {
@@ -70,8 +99,52 @@ open class ParseClassObjectsDownloadOperation<T: PFObject>: Operation where T: P
         
         // Busqueda
         do {
-            self.objects = try query.findObjects()
+			
+			var numberOfCalls: Int = 1
+			
+			// Comprobar cuantos objetos se desean
+			if self.page == 0 {
+	
+				// Todos los objetos, primero habrá que contar cuantos hay
+				let count = query.countObjects(nil)
+				
+				if count > maxPageSize {
+					// Hay que hacer varias llamadas, pues hay mas objectos que el máximo permitido por petición
+					numberOfCalls = (count / maxPageSize) + (((count % maxPageSize)==0) ? 0 : 1)
+				} else {
+					// En una única llamada caben todos
+					self.pageSize = count
+				}
+				
+			} else {
+				
+				// Una página en concreto
+				self.query.skip = self.pageSize * (self.page-1)
+			}
+			
+			// Límite de elementos por petición
+			self.query.limit = self.pageSize
+			
+			// Ordenación
+			for orderBy in self.orderBy {
+				switch orderBy.direction {
+				case .ascending:
+					self.query.addAscendingOrder(orderBy.key)
+				case .descending:
+					self.query.addDescendingOrder(orderBy.key)
+				}
+			}
+			
+			self.objects = []
+			
+			for page in 1...numberOfCalls {
+				self.objects?.append(contentsOf: try query.findObjects())
+				
+				self.query.skip = self.pageSize * page
+			}
+			
             self.error = ObjectError.noError()
+			
         } catch let error as NSError {
             XCGLogger.error(error.userInfo)
             self.error = ObjectError(withCode: error.code)

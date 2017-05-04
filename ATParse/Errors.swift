@@ -40,6 +40,7 @@ public enum ObjectError: ParseError {
 /// - emailAlreadyInUse: Código 203 -> Email ya en uso
 /// - invalidUsernamePassword: Código 101 -> Combinación usuario contraseña invalida
 /// - emailFormatInvalid: Codigo 125 -> Formato del email incorrecto
+/// - schemaMismatch: Código 111 -> El tipo de una variable no coincide con el esperado por el servidor Parse
 /// - userCancelledFacebookLogin: El usuario declinó logearse con Facebook
 /// - unknown: Desconocido
 public enum UserError: ParseError {
@@ -48,6 +49,7 @@ public enum UserError: ParseError {
     case invalidUsernamePassword
     case emailFormatInvalid
     case userCancelledFacebookLogin
+	case schemaMismatch
     case unknown
     
     public init?(withCode code: Int) {
@@ -55,6 +57,8 @@ public enum UserError: ParseError {
         switch code {
         case 101:
             self = .invalidUsernamePassword
+		case 111:
+			self = .schemaMismatch
         case 125:
             self = .emailFormatInvalid
         case 200:

@@ -47,12 +47,15 @@ open class ATParse {
     ///   - predicate: Predicado para la query, nulo por defecto
     ///   - includedKeys: Claves a incluir en la búsqueda para obtener los objetos relacionados, ninguna por defecto
     ///   - async: Si la operación ha de realizarse de manera asíncrona, `true` por defecto
+	///	  - pageSize: Número de elementos a recabar, `100` por defecto.
+	///   - page: Página, si por ejemplo se desean los segundos 100 elementos, este parametro debería de valer 2 y pageSize `100`.
+	///   - orderBy: Ordenación de los resultados
     ///   - completionQueue: Cola en la que ejecutar el bloque de terminación, principal por defecto
     ///   - completion: Bloque de terminación, nulo por defecto
     /// - Returns: Centinela para que el compilador pueda inferir el tipo T, NO USAR
-    public func fetchObjects<T: PFObject>(withPredicate predicate: NSPredicate? = nil, includingKeys includedKeys: [String] = [], async: Bool = true, completionQueue: DispatchQueue = .main, completion: FetchPFObjectsResult<T>? = nil)  -> T? where T: PFSubclassing {
+    public func fetchObjects<T: PFObject>(withPredicate predicate: NSPredicate? = nil, includingKeys includedKeys: [String] = [], async: Bool = true, pageSize: Int = defaultPageSize, page: Int = 1, orderedBy orderBy: [OrderBy] = [], completionQueue: DispatchQueue = .main, completion: FetchPFObjectsResult<T>? = nil)  -> T? where T: PFSubclassing {
         
-        let operation: ParseClassObjectsDownloadOperation<T> = ParseClassObjectsDownloadOperation<T>(predicate: predicate, includingKeys: includedKeys, cachePolicy: self.cachePolicy , completionQueue: completionQueue)
+		let operation: ParseClassObjectsDownloadOperation<T> = ParseClassObjectsDownloadOperation<T>(predicate: predicate, includingKeys: includedKeys, cachePolicy: self.cachePolicy, pageSize: pageSize, page: page, orderBy: orderBy, completionQueue: completionQueue)
         
         operation.completion = completion
         
