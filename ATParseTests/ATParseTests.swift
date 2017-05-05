@@ -157,4 +157,19 @@ class ATParseTests: XCTestCase {
             }
         }
     }
+	
+	func testATParseOverloadOperator() {
+		// This is an example of a functional test case.
+		// Use XCTAssert and related functions to verify your tests produce the correct results.
+		
+		var leftObject = ATParseObjectSubclass(withoutDataWithObjectId: "12345")
+		var righObject = ATParseObjectSubclass(withoutDataWithObjectId: "12345")
+		
+		XCTAssert(leftObject == righObject)
+		
+		leftObject = ATParseObjectSubclass(withoutDataWithObjectId: "12345")
+		righObject = ATParseObjectSubclass(withoutDataWithObjectId: "123456")
+		
+		XCTAssert(leftObject != righObject)
+	}
 }

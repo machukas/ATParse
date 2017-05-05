@@ -25,7 +25,17 @@ public extension ParseCustomStringConvertible where Self: ATParseObject {
 
 /// Provee de operaciones básicas genéricas.
 open class ATParseObject: PFObject, ParseCustomStringConvertible {
-    
+	
+	/// Compara dos objectos ATParse
+	///
+	/// - Parameters:
+	///   - lhs:
+	///   - rhs:
+	/// - Returns: Devuelve `true` si los `objectId` de ambos objetos coinciden
+	open static func ==(lhs: ATParseObject, rhs: ATParseObject) -> Bool {
+		return lhs.objectId == rhs.objectId
+	}
+	
     /// Recupera una propiedad de tipo `T` del PFObject
     ///
     /// - Parameter key: La clave del valor a recuperar
