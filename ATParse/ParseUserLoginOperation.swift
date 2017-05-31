@@ -166,28 +166,15 @@ class LoginOperation: Operation {
 									}
 									
 								} else {
-									if let result = result as? NSDictionary {
+									if let result = result as? NSDictionary,
+										let keys = requestParameters["fields"] {
 										
 										let userId = result["id"] as? String
 										
-										if let firstName = result["first_name"] as? String {
-											user.setValue(firstName, forKey: "first_name")
-										}
-										
-										if let lastName = result["last_name"] as? String {
-											user.setValue(lastName, forKey: "last_name")
-										}
-										
-										if let genre = result["gender"] as? String {
-											user.setValue(genre=="male" ? "man" : "woman", forKey: "sex")
-										}
-										
-										if let ageRange = result["age_range"] as? String {
-											user.setValue(ageRange, forKey: "age_range")
-										}
-										
-										if let email = result["email"] as? String {
-											user.setValue(email, forKey: "email")
+										for key in keys.trimmingCharacters(in: .whitespaces).components(separatedBy: ",") {
+											if let value = result[key] as? String {
+												user.setValue(value, forKey: key)
+											}
 										}
 										
 										if let pictureDictionary = result["picture"] as? [String:Any],
