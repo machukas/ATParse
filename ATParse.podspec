@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.source_files  = "ATParse/**/*.{h,m,swift}"
 
   s.dependency "Parse"
-  s.dependency "XCGLogger"
+  s.dependency "ATLogger"
   s.dependency "ParseTwitterUtils"
   s.dependency "ParseFacebookUtilsV4"
 

@@ -10,7 +10,6 @@ import Foundation
 import Parse
 import ParseFacebookUtilsV4
 import ParseTwitterUtils
-import XCGLogger
 
 /// Tipos de login
 ///
@@ -54,7 +53,7 @@ class LoginOperation: Operation {
         super.init()
         
         self.completionBlock = {
-            XCGLogger.info("LoginOperation of type \(self.type) finished")
+            log.info("LoginOperation of type \(self.type) finished")
         }
     }
     
@@ -66,7 +65,7 @@ class LoginOperation: Operation {
         case .facebook:
             self.facebookLogIn()
         case .twitter:
-            XCGLogger.warning("Not yet implemented")
+            log.warning("Not yet implemented")
         }
     }
     
@@ -82,7 +81,7 @@ class LoginOperation: Operation {
                 
                 if self.error == .invalidUsernamePassword {
                     // Combinacion usuario/contraseña invalida
-                    XCGLogger.error("The given combination \(username)/\(password) is not valid")
+                    log.error("The given combination \(username)/\(password) is not valid")
                 }
                 
             } else {
@@ -104,7 +103,7 @@ class LoginOperation: Operation {
         
         guard let token = FBSDKAccessToken.current() else {
             // Si no hay token guardado, al registro
-            XCGLogger.info("No previously saved token, skipping to registration")
+            log.info("No previously saved token, skipping to registration")
             
             if signUpIfLoginFails {
                 self.facebookSignUp()
@@ -115,10 +114,10 @@ class LoginOperation: Operation {
         
         PFFacebookUtils.logInInBackground(with: token) { user, error in
             if let error = error as NSError? {
-                XCGLogger.error("There was an error logging in: \(error)")
+                log.error("There was an error logging in: \(error)")
                 self.error = UserError(withCode: error.code)
             } else if let user = user {
-                XCGLogger.info("User logged in through Facebook \(user)")
+                log.info("User logged in through Facebook \(user)")
                 self.error = UserError.noError()
             }
             
@@ -139,7 +138,7 @@ class LoginOperation: Operation {
 			PFFacebookUtils.logInInBackground(withReadPermissions: ["public_profile","email"]) { (user, error) in
 				
 				if let error = error as NSError? {
-					XCGLogger.error("Something went wrong when logging with Facebook")
+					log.error("Something went wrong when logging with Facebook")
 					self.error = UserError(withCode: error.code)
 				} else if let user = user {
 					
@@ -158,7 +157,7 @@ class LoginOperation: Operation {
 							
 							userDetails.start(completionHandler: { (connection, result, error) in
 								if let error = error as NSError? {
-									XCGLogger.error(error.localizedDescription)
+									log.error(error.localizedDescription)
 									self.error = UserError(withCode: error.code)
 									
 									if error.code == 8 { // Error con la petición al Facebook Graph
@@ -198,11 +197,11 @@ class LoginOperation: Operation {
 											user.setValue(pictureURL, forKey: "icon")
 										}
 										
-										XCGLogger.info("Details from user with id: \(userId ?? "unknown") successfully adquired")
+										log.info("Details from user with id: \(userId ?? "unknown") successfully adquired")
 										
 										user.saveInBackground { success, error in
 											if let error = error as NSError? {
-												XCGLogger.error("Error updating user \(user.description): \(error)")
+												log.error("Error updating user \(user.description): \(error)")
 												self.error = UserError(withCode: error.code)
 											} else {
 												self.error = UserError.noError()
@@ -213,7 +212,7 @@ class LoginOperation: Operation {
 											}
 										}
 									} else {
-										XCGLogger.error("Could not cast the response to a Dictionary")
+										log.error("Could not cast the response to a Dictionary")
 										self.error = UserError(withCode: 0)
 										
 										self.completionQueue.async {
@@ -223,7 +222,7 @@ class LoginOperation: Operation {
 								}
 							})
 						} else {
-							XCGLogger.error("Something occurred when creating the GraphRequest")
+							log.error("Something occurred when creating the GraphRequest")
 							self.error = UserError(withCode: 0)
 							
 							self.completionQueue.async {
@@ -233,7 +232,7 @@ class LoginOperation: Operation {
 					}
 				} else {
 					// El usuario canceló el login
-					XCGLogger.info("The user cancelled the Facebok logging process")
+					log.info("The user cancelled the Facebok logging process")
 					self.error = .userCancelledFacebookLogin
 					
 					self.completionQueue.async {

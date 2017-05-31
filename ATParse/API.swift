@@ -8,7 +8,6 @@
 
 import Foundation
 import Parse
-import XCGLogger
 
 open class ATParse {
 	
@@ -48,7 +47,7 @@ open class ATParse {
     ///   - includedKeys: Claves a incluir en la búsqueda para obtener los objetos relacionados, ninguna por defecto
     ///   - async: Si la operación ha de realizarse de manera asíncrona, `true` por defecto
 	///	  - pageSize: Número de elementos a recabar, `100` por defecto.
-	///   - page: Página, si por ejemplo se desean los segundos 100 elementos, este parametro debería de valer 2 y pageSize `100`.
+	///   - page: Página, si por ejemplo se desean los segundos 100 elementos, este parametro debería de valer 2 y pageSize `100`. Si se desean todos los objetos, pasar `0`.
 	///   - orderBy: Ordenación de los resultados
     ///   - completionQueue: Cola en la que ejecutar el bloque de terminación, principal por defecto
     ///   - completion: Bloque de terminación, nulo por defecto

@@ -8,7 +8,6 @@
 
 import UIKit
 import Parse
-import XCGLogger
 
 /// Un tipo Parse con una representación textual personalizada. Este protocolo es necesario pues la variable `description` ya es usada por `PFObject`
 public protocol ParseCustomStringConvertible {
@@ -43,7 +42,7 @@ open class ATParseObject: PFObject, ParseCustomStringConvertible {
     public func property<T>(forKey key: String) -> T? {
         let value = self.object(forKey: key) as? T
         if value == nil {
-            XCGLogger.error(self.errorLogMessage(key: key))
+            log.error(self.errorLogMessage(key: key))
         }
         return value
     }

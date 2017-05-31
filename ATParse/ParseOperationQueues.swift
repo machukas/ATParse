@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import XCGLogger
 
 /// Colas disponibles para las operaciones:
 public struct OperationQueues {
@@ -15,7 +14,7 @@ public struct OperationQueues {
     public static var parse: OperationQueue = {
         let queue = OperationQueue()
         queue.name = "ParseOperationsQueue"
-        XCGLogger.info("Created \(queue.description) operation queue")
+        log.info("Created \(queue.description) operation queue")
         return queue
     }()
 }

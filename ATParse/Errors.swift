@@ -7,7 +7,9 @@
 //
 
 import Foundation
-import XCGLogger
+import ATLogger
+
+internal var log: ATLogger = ATLogger(withLevel: .error)
 
 public protocol ParseError: Error {
     init?(withCode code: Int)
@@ -20,7 +22,7 @@ public enum ObjectError: ParseError {
     case unknown
     
     public init?(withCode code: Int) {
-        XCGLogger.info("Initializing ParseError with code: \(code) ")
+        log.info("Initializing ParseError with code: \(code) ")
         switch code {
         case 200:
             return nil
@@ -53,7 +55,7 @@ public enum UserError: ParseError {
     case unknown
     
     public init?(withCode code: Int) {
-        XCGLogger.info("Initializing UserError with code: \(code) ")
+        log.info("Initializing UserError with code: \(code) ")
         switch code {
         case 101:
             self = .invalidUsernamePassword

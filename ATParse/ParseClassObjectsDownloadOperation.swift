@@ -8,7 +8,6 @@
 
 import Foundation
 import Parse
-import XCGLogger
 
 public typealias FetchPFObjectsResult<T: PFObject> = (ParseError?, [T]?)->Void
 public typealias OrderBy = (direction: OrderDirection, key: String)
@@ -87,7 +86,7 @@ open class ParseClassObjectsDownloadOperation<T: PFObject>: Operation where T: P
         super.init()
         
         self.completionBlock = {
-            XCGLogger.info("ParseClassObjectsDownloadOperation of type \(T.parseClassName()) finished")
+            log.info("ParseClassObjectsDownloadOperation of type \(T.parseClassName()) finished")
         }
     }
 
@@ -146,7 +145,7 @@ open class ParseClassObjectsDownloadOperation<T: PFObject>: Operation where T: P
             self.error = ObjectError.noError()
 			
         } catch let error as NSError {
-            XCGLogger.error(error.userInfo)
+            log.error("\(error.userInfo)")
             self.error = ObjectError(withCode: error.code)
         }
         

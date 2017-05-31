@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import XCGLogger
 import Parse
 
 @testable import ATParse
@@ -61,7 +60,7 @@ class DownloadOperationTests: XCTestCase {
         
         waitForExpectations(timeout: 10.0) { error in
             if let error = error {
-                XCGLogger.error("Error: \(error.localizedDescription)")
+                log.error("Error: \(error.localizedDescription)")
             }
         }
     }
@@ -90,7 +89,7 @@ class DownloadOperationTests: XCTestCase {
         
         waitForExpectations(timeout: 10.0) { error in
             if let error = error {
-                XCGLogger.error("Error: \(error.localizedDescription)")
+                log.error("Error: \(error.localizedDescription)")
             }
         }
     }

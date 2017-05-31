@@ -9,9 +9,7 @@ target 'ATParse' do
 
   pod 'Parse'
   
-  pod 'Fabric'
-  
-  pod 'XCGLogger'
+  pod 'ATLogger', :git => 'https://github.com/machukas/ATLogger.git'
   
   pod 'ParseTwitterUtils'
   
