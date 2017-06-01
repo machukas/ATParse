@@ -166,23 +166,9 @@ class LoginOperation: Operation {
 									}
 									
 								} else {
-									if let result = result as? NSDictionary,
-										let keys = requestParameters["fields"] {
+									if let result = result as? NSDictionary {
 										
 										let userId = result["id"] as? String
-										
-										for key in keys.trimmingCharacters(in: .whitespaces).components(separatedBy: ",") {
-											if let value = result[key] as? String {
-												user.setValue(value, forKey: key)
-											}
-										}
-										
-										if let pictureDictionary = result["picture"] as? [String:Any],
-											let pictureData = pictureDictionary["data"] as? [String:Any],
-											let pictureURL = pictureData["url"] as? String {
-											
-											user.setValue(pictureURL, forKey: "icon")
-										}
 										
 										log.info("Details from user with id: \(userId ?? "unknown") successfully adquired")
 										
