@@ -8,7 +8,6 @@
 
 import XCTest
 import Parse
-import XCGLogger
 @testable import ATParse
 
 /// Contiene las distintas configuraciones para conectar con un servidor Parse
@@ -22,10 +21,37 @@ public struct ParseConfiguration {
 }
 
 class ATParseObjectSubclass: ATParseObject, PFSubclassing {
+	
+	var index: Int {
+		return self.property(forKey: "index")!
+	}
+	
+	var test2: ATParseObjectSubclass2 {
+		get {
+			return self.property(forKey: "test2")!
+		} set {
+			self.setObject(newValue, forKey: "test2")
+		}
+	}
     
     class func parseClassName() -> String {
         return "Test"
     }
+}
+
+class ATParseObjectSubclass2: ATParseObject, PFSubclassing {
+	
+	var test: ATParseObjectSubclass {
+		get {
+			return self.property(forKey: "test")!
+		} set {
+			self.setObject(newValue, forKey: "test")
+		}
+	}
+	
+	class func parseClassName() -> String {
+		return "Test2"
+	}
 }
 
 class ATParseTests: XCTestCase {
@@ -55,6 +81,15 @@ class ATParseTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+		
+//		let test = ATParseObjectSubclass()
+//		let test2 = ATParseObjectSubclass2()
+//		
+//		test2.test = test
+//		
+//		try? PFObject.saveAll([test, test2])
+		
+		
     }
     
     func testSyncFetch() {
@@ -82,17 +117,17 @@ class ATParseTests: XCTestCase {
     
         let succesfullFetchExpectation = expectation(description: "Successfully fetched into \(Parse.currentConfiguration()?.server ?? ""))")
         
-        let _: ATParseObjectSubclass? = self.ignoringCacheATParse.fetchObjects() { (error, objects) in
+        let _: ATParseObjectSubclass2? = self.ignoringCacheATParse.fetchObjects() { (error, objects) in
             
             XCTAssert(error == nil)
-            XCGLogger.info("\(objects ?? [])")
+            log.info("\(objects ?? [])")
             
             succesfullFetchExpectation.fulfill()
         }
         
         waitForExpectations(timeout: 20.0) { error in
             if let error = error {
-                XCGLogger.error("Error: \(error.localizedDescription)")
+                log.error("Error: \(error.localizedDescription)")
             }
         }
     }
@@ -106,14 +141,14 @@ class ATParseTests: XCTestCase {
 			XCTAssert(error == nil)
 			XCTAssert(objects!.count > 1000)
 			
-			XCGLogger.info("\(objects ?? [])")
+			log.info("\(objects ?? [])")
 			
 			succesfullFetchExpectation.fulfill()
 		}
 		
 		waitForExpectations(timeout: 20.0) { error in
 			if let error = error {
-				XCGLogger.error("Error: \(error.localizedDescription)")
+				log.error("Error: \(error.localizedDescription)")
 			}
 		}
 	}
@@ -127,14 +162,14 @@ class ATParseTests: XCTestCase {
 			XCTAssert(error == nil)
 			XCTAssert(objects!.count == 100)
 			
-			XCGLogger.info("\(objects ?? [])")
+			log.info("\(objects ?? [])")
 			
 			succesfullFetchExpectation.fulfill()
 		}
 		
 		waitForExpectations(timeout: 20.0) { error in
 			if let error = error {
-				XCGLogger.error("Error: \(error.localizedDescription)")
+				log.error("Error: \(error.localizedDescription)")
 			}
 		}
 	}
@@ -153,7 +188,7 @@ class ATParseTests: XCTestCase {
 
         waitForExpectations(timeout: 20.0) { error in
             if let error = error {
-                XCGLogger.error("Error: \(error.localizedDescription)")
+                log.error("Error: \(error.localizedDescription)")
             }
         }
     }
