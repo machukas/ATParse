@@ -202,6 +202,13 @@ class LoginOperation: Operation {
 								self.completion?(self.error,user, nil)
 							}
 						}
+					} else {
+						// El usuario no es nuevo, hacer login
+						log.info("The user is not new, loggin in...")
+						
+						self.completionQueue.async {
+							self.completion?(nil,user, nil)
+						}
 					}
 				} else {
 					// El usuario canceló el login
