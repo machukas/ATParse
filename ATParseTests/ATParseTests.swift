@@ -8,7 +8,7 @@
 
 import XCTest
 import Parse
-import XCGLogger
+import ATLogger
 @testable import ATParse
 
 /// Contiene las distintas configuraciones para conectar con un servidor Parse
@@ -85,14 +85,14 @@ class ATParseTests: XCTestCase {
         let _: ATParseObjectSubclass? = self.ignoringCacheATParse.fetchObjects() { (error, objects) in
             
             XCTAssert(error == nil)
-            XCGLogger.info("\(objects ?? [])")
+            log.info("\(objects ?? [])")
             
             succesfullFetchExpectation.fulfill()
         }
         
         waitForExpectations(timeout: 20.0) { error in
             if let error = error {
-                XCGLogger.error("Error: \(error.localizedDescription)")
+                log.error("Error: \(error.localizedDescription)")
             }
         }
     }
@@ -106,14 +106,14 @@ class ATParseTests: XCTestCase {
 			XCTAssert(error == nil)
 			XCTAssert(objects!.count > 1000)
 			
-			XCGLogger.info("\(objects ?? [])")
+			log.info("\(objects ?? [])")
 			
 			succesfullFetchExpectation.fulfill()
 		}
 		
 		waitForExpectations(timeout: 20.0) { error in
 			if let error = error {
-				XCGLogger.error("Error: \(error.localizedDescription)")
+				log.error("Error: \(error.localizedDescription)")
 			}
 		}
 	}
@@ -127,14 +127,14 @@ class ATParseTests: XCTestCase {
 			XCTAssert(error == nil)
 			XCTAssert(objects!.count == 100)
 			
-			XCGLogger.info("\(objects ?? [])")
+			log.info("\(objects ?? [])")
 			
 			succesfullFetchExpectation.fulfill()
 		}
 		
 		waitForExpectations(timeout: 20.0) { error in
 			if let error = error {
-				XCGLogger.error("Error: \(error.localizedDescription)")
+				log.error("Error: \(error.localizedDescription)")
 			}
 		}
 	}
@@ -153,7 +153,7 @@ class ATParseTests: XCTestCase {
 
         waitForExpectations(timeout: 20.0) { error in
             if let error = error {
-                XCGLogger.error("Error: \(error.localizedDescription)")
+                log.error("Error: \(error.localizedDescription)")
             }
         }
     }
