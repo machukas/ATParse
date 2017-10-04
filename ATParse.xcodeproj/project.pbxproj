@@ -54,7 +54,7 @@
 		EAE127A01E0AA649009F41F5 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		EAE127A21E0AA901009F41F5 /* ParseOperationQueues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseOperationQueues.swift; sourceTree = "<group>"; };
 		EAE127B41E0AB289009F41F5 /* Pods_ChassApp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_ChassApp.framework; path = "../../Library/Developer/Xcode/DerivedData/ChassApp-ctqnfchhpuohsfduxjzozlrmgjby/Build/Products/Debug-iphonesimulator/Pods_ChassApp.framework"; sourceTree = "<group>"; };
-		EAE127BF1E0AEA1A009F41F5 /* ATParse.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ATParse.podspec; sourceTree = SOURCE_ROOT; };
+		EAE127BF1E0AEA1A009F41F5 /* ATParse.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ATParse.podspec; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.python; };
 		F1999B0C7314353D36B9B8CE /* Pods-ATParseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATParseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATParseTests/Pods-ATParseTests.release.xcconfig"; sourceTree = "<group>"; };
 		F93141EF2B7F43401C7DC83D /* Pods-ATParseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATParseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATParseTests/Pods-ATParseTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */

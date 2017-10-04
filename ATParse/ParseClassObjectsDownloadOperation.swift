@@ -18,9 +18,9 @@ public enum OrderDirection {
 }
 
 /// Tamaño de página por defecto
-let defaultPageSize: Int = 100
+public let defaultPageSize: Int = 100
 /// Tamaño máximo de página
-let maxPageSize: Int = 1000
+public let maxPageSize: Int = 1000
 
 /// Operación para la descarga de los objetos de una clase en un servidor Parse
 open class ParseClassObjectsDownloadOperation<T: PFObject>: Operation where T: PFSubclassing {

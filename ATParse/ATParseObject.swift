@@ -54,6 +54,6 @@ open class ATParseObject: PFObject, ParseCustomStringConvertible {
     /// - Parameter key: La clave que no se encuentra
     /// - Returns: El mensaje de error
     private func errorLogMessage(key: String) -> String {
-        return "No property found in \(parseClassName).\(self.objectId) with key=\(key)"
+        return "No property found in \(parseClassName).\(self.objectId ?? "notFound") with key=\(key)"
     }
 }

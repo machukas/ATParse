@@ -14,11 +14,12 @@ Pod::Spec.new do |s|
   s.description  = "This library makes it easy to fetch data from a Parse server"
   s.homepage     = "http://EXAMPLE/ATParse"
   s.license      = "MIT"
-  s.author             = { "Nico Landa" => "machukkas@gmail.com" }
+  s.author       = { "Nico Landa" => "machukkas@gmail.com" }
 
 
   s.platform     = :ios
   s.ios.deployment_target = '9.0'
+  s.xcconfig = { 'SWIFT_VERSION' => '4.0' }
 
   s.source       = { :git => 'https://github.com/machukas/ATParse.git' }
 
