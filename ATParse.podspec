@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ATParse"
-  s.version      = "1.0.12"
+  s.version      = "1.0.13"
   s.summary      = "Library for easy Parse Server interaction."
   s.description  = "This library makes it easy to fetch data from a Parse server"
   s.homepage     = "http://EXAMPLE/ATParse"
