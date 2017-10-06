@@ -140,6 +140,11 @@ class LoginOperation: Operation {
 				if let error = error as NSError? {
 					log.error("Something went wrong when logging with Facebook")
 					self.error = UserError(withCode: error.code)
+					
+					self.completionQueue.async {
+						self.completion?(self.error,user, nil)
+					}
+					
 				} else if let user = user {
 					
 					if user.isNew { // Si el usuario es nuevo, pedir a Facebook sus datos básicos de registro
