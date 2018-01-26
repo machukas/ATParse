@@ -12,28 +12,28 @@ import ATLogger
 internal var log: ATLogger = ATLogger(withLevel: .error)
 
 public protocol ParseError: Error {
-    init?(withCode code: Int)
+	init?(withCode code: Int)
 }
 
 /// Casos de error:
 ///
 /// - unknown: Desconocido
 public enum ObjectError: ParseError {
-    case unknown
-    
-    public init?(withCode code: Int) {
-        NSLog("Initializing ParseError with code: \(code) ")
-        switch code {
-        case 200:
-            return nil
-        default:
-            self = .unknown
-        }
-    }
-    
-    static func noError() -> ObjectError? {
-        return ObjectError(withCode: 200)
-    }
+	case unknown
+	
+	public init?(withCode code: Int) {
+		NSLog("Initializing ParseError with code: \(code) ")
+		switch code {
+		case 200:
+			return nil
+		default:
+			self = .unknown
+		}
+	}
+	
+	static func noError() -> ObjectError? {
+		return ObjectError(withCode: 200)
+	}
 }
 
 /// Casos de error:
@@ -46,35 +46,35 @@ public enum ObjectError: ParseError {
 /// - userCancelledFacebookLogin: El usuario declinó logearse con Facebook
 /// - unknown: Desconocido
 public enum UserError: ParseError {
-    case userAlreadyExists
-    case emailAlreadyInUse
-    case invalidUsernamePassword
-    case emailFormatInvalid
-    case userCancelledFacebookLogin
+	case userAlreadyExists
+	case emailAlreadyInUse
+	case invalidUsernamePassword
+	case emailFormatInvalid
+	case userCancelledFacebookLogin
 	case schemaMismatch
-    case unknown
-    
-    public init?(withCode code: Int) {
-        NSLog("Initializing UserError with code: \(code) ")
-        switch code {
-        case 101:
-            self = .invalidUsernamePassword
+	case unknown
+	
+	public init?(withCode code: Int) {
+		NSLog("Initializing UserError with code: \(code) ")
+		switch code {
 		case 111:
 			self = .schemaMismatch
-        case 125:
-            self = .emailFormatInvalid
-        case 200:
-            return nil
-        case 202:
-            self = .userAlreadyExists
-        case 203:
-            self = .emailAlreadyInUse
-        default:
-            self = .unknown
-        }
-    }
-    
-    static func noError() -> UserError? {
-        return UserError(withCode: 200)
-    }
+		case 101:
+			self = .invalidUsernamePassword
+		case 125:
+			self = .emailFormatInvalid
+		case 200:
+			return nil
+		case 202:
+			self = .userAlreadyExists
+		case 203:
+			self = .emailAlreadyInUse
+		default:
+			self = .unknown
+		}
+	}
+	
+	static func noError() -> UserError? {
+		return UserError(withCode: 200)
+	}
 }

@@ -13,6 +13,7 @@
 		2E5EC8E6201A11C600237C88 /* ParseConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E5EC8E5201A11C600237C88 /* ParseConfiguration.plist */; };
 		2E5EC8E7201A121C00237C88 /* ParseConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E5EC8E5201A11C600237C88 /* ParseConfiguration.plist */; };
 		2E5EC8E9201B1AFD00237C88 /* ATParseErrorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EC8E8201B1AFD00237C88 /* ATParseErrorsTest.swift */; };
+		6A8DE069FBA7AADAC74599E3 /* Pods_ATParse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA7EF2F2010DCEF0085DAEA /* Pods_ATParse.framework */; };
 		BE7D11C281DDC87C2E240562 /* Pods_ATParse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE4DCDF6ED5A4682B9AE771 /* Pods_ATParse.framework */; };
 		EA09D2D51E1D6171008753B2 /* ATParseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA09D2D41E1D6171008753B2 /* ATParseObject.swift */; };
 		EA7EBB6A1E2510AB00EFD183 /* DownloadOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7EBB691E2510AB00EFD183 /* DownloadOperationTests.swift */; };
@@ -75,6 +76,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE7D11C281DDC87C2E240562 /* Pods_ATParse.framework in Frameworks */,
+				6A8DE069FBA7AADAC74599E3 /* Pods_ATParse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,7 +345,6 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/ParseFacebookUtilsV4/ParseFacebookUtilsV4.framework",
-				"${BUILT_PRODUCTS_DIR}/ParseTwitterUtils/ParseTwitterUtils.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -353,7 +354,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseFacebookUtilsV4.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseTwitterUtils.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

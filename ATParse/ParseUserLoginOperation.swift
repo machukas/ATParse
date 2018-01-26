@@ -9,12 +9,12 @@
 import Foundation
 import Parse
 import ParseFacebookUtilsV4
-import ParseTwitterUtils
 
 /// Tipos de login
 ///
 /// - normal: Login normal contra el servidor Parse, lleva asociados nombre y contraseña
-/// - facebook: Login mediante Facebook, lleva asociadas las claves de los valores que se desean obtener de Facebook acerca del usuario, por defecto: `"id, email, first_name, last_name, genre, age_range, picture"`
+/// - facebook: Login mediante Facebook, lleva asociadas las claves de los valores que se desean obtener de Facebook acerca del usuario,
+///					por defecto: `"id, email, first_name, last_name, genre, age_range, picture"`
 /// - twitter: Login mediante Twitter
 public enum LoginType {
     case normal(username: String, password: String)
@@ -23,7 +23,7 @@ public enum LoginType {
 }
 
 /// Closure al completarse el login. userInfo contiene la información del usuario recabada del servicio de login usado, i.e: Facebook.
-public typealias UserLogResult = (_ error: UserError?, _ user: PFUser?, _ userInfo: [String:Any]?)->Void
+public typealias UserLogResult = (_ error: UserError?, _ user: PFUser?, _ userInfo: [String: Any]?) -> Void
 
 /// Operación de login, se inicializa con el tipo que se desee realizar el mismo.
 class LoginOperation: Operation {
@@ -74,7 +74,7 @@ class LoginOperation: Operation {
     /// - Parameters:
     ///   - username: nombre de usuario
     ///   - password: contraseña
-    func login(withUserName username: String, andPassword password: String){
+    func login(withUserName username: String, andPassword password: String) {
         PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) in
             if let error = error as NSError? {
                 self.error = UserError(withCode: error.code)
@@ -90,7 +90,7 @@ class LoginOperation: Operation {
             
             if let completion = self.completion {
                 self.completionQueue.async {
-                    completion(self.error,user, nil)
+                    completion(self.error, user, nil)
                 }
             }
         }
@@ -123,35 +123,36 @@ class LoginOperation: Operation {
             
             if let completion = self.completion {
                 self.completionQueue.async {
-                    completion(self.error,user, nil)
+                    completion(self.error, user, nil)
                 }
             }
         }
     }
-    
+	
+	//swiftlint:disable function_body_length
     /// Realiza el sign up mediante el SDK de Facebook. Crea un nuevo usuario en el servidor Parse y le añade la información almacenada en Facebook sobre dicho usuario.
 	private func facebookSignUp() {
 		
 		// Debe hacerse en el thread principal, pues el SDK de Facebook muestra una nueva pantalla en la UI
 		DispatchQueue.main.async {
 			
-			PFFacebookUtils.logInInBackground(withReadPermissions: ["public_profile","email"]) { (user, error) in
+			PFFacebookUtils.logInInBackground(withReadPermissions: ["public_profile", "email"]) { (user, error) in
 				
 				if let error = error as NSError? {
 					log.error("Something went wrong when logging with Facebook")
 					self.error = UserError(withCode: error.code)
 					
 					self.completionQueue.async {
-						self.completion?(self.error,user, nil)
+						self.completion?(self.error, user, nil)
 					}
 					
 				} else if let user = user {
 					
 					if user.isNew { // Si el usuario es nuevo, pedir a Facebook sus datos básicos de registro
 						
-						var requestParameters: [String:String] = [:]
+						var requestParameters: [String: String] = [:]
 						
-						if case .facebook(let profileInfoRequestParameters) = self.type , let parameters = profileInfoRequestParameters {
+						if case .facebook(let profileInfoRequestParameters) = self.type, let parameters = profileInfoRequestParameters {
 							requestParameters["fields"] = parameters
 						} else {
 							requestParameters["fields"] = "id, email, first_name, last_name, gender, picture.type(large), age_range"
@@ -160,7 +161,7 @@ class LoginOperation: Operation {
 						// Se le piden a Facebook los datos del usuario, para completar la información del registro
 						if let userDetails = FBSDKGraphRequest(graphPath: "me", parameters: requestParameters) {
 							
-							userDetails.start(completionHandler: { (connection, result, error) in
+							userDetails.start(completionHandler: { (_, result, error) in
 								if let error = error as NSError? {
 									log.error(error.localizedDescription)
 									self.error = UserError(withCode: error.code)
@@ -177,7 +178,7 @@ class LoginOperation: Operation {
 										
 										log.info("Details from user with id: \(userId ?? "unknown") successfully adquired")
 										
-										user.saveInBackground { success, error in
+										user.saveInBackground { _, error in
 											if let error = error as NSError? {
 												log.error("Error updating user \(user.description): \(error)")
 												self.error = UserError(withCode: error.code)
@@ -186,7 +187,7 @@ class LoginOperation: Operation {
 											}
 											
 											self.completionQueue.async {
-												self.completion?(self.error,user, result as? [String:Any])
+												self.completion?(self.error, user, result as? [String: Any])
 											}
 										}
 									} else {
@@ -194,7 +195,7 @@ class LoginOperation: Operation {
 										self.error = UserError(withCode: 0)
 										
 										self.completionQueue.async {
-											self.completion?(self.error,user, nil)
+											self.completion?(self.error, user, nil)
 										}
 									}
 								}
@@ -204,7 +205,7 @@ class LoginOperation: Operation {
 							self.error = UserError(withCode: 0)
 							
 							self.completionQueue.async {
-								self.completion?(self.error,user, nil)
+								self.completion?(self.error, user, nil)
 							}
 						}
 					} else {
@@ -212,7 +213,7 @@ class LoginOperation: Operation {
 						log.info("The user is not new, loggin in...")
 						
 						self.completionQueue.async {
-							self.completion?(nil,user, nil)
+							self.completion?(nil, user, nil)
 						}
 					}
 				} else {
@@ -221,7 +222,7 @@ class LoginOperation: Operation {
 					self.error = .userCancelledFacebookLogin
 					
 					self.completionQueue.async {
-						self.completion?(self.error,user, nil)
+						self.completion?(self.error, user, nil)
 					}
 				}
 			}

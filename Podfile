@@ -5,14 +5,15 @@ target 'ATParse' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
+  # No mostrar warnings para librerías ajenas
+  inhibit_all_warnings!
+
   # Pods for ATParse
 
   pod 'Parse'
   
   pod 'ATLogger', :git => 'https://github.com/machukas/ATLogger.git'
-  
-  pod 'ParseTwitterUtils'
-  
+    
   pod 'ParseFacebookUtilsV4'
 
   target 'ATParseTests' do
