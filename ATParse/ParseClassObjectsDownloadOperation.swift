@@ -9,7 +9,7 @@
 import Foundation
 import Parse
 
-public typealias FetchPFObjectsResult<T: PFObject> = (ParseError?, [T]?)->Void
+public typealias FetchPFObjectsResult<T: PFObject> = (ParseError?, [T]?) -> Void
 public typealias OrderBy = (direction: OrderDirection, key: String)
 
 public enum OrderDirection {
@@ -25,9 +25,6 @@ public let maxPageSize: Int = 1000
 /// Operación para la descarga de los objetos de una clase en un servidor Parse
 open class ParseClassObjectsDownloadOperation<T: PFObject>: Operation where T: PFSubclassing {
 	
-    /// Predicado de la query
-    let predicate: NSPredicate?
-    
     /// PFQuery
     let query: PFQuery<T>
 	
@@ -60,18 +57,24 @@ open class ParseClassObjectsDownloadOperation<T: PFObject>: Operation where T: P
     ///
     ///
     /// - Parameters:
-    ///   - predicate:			Predicado para la query, nulo por defecto.
+    ///   - query:				Consulta para la petición, nulo por defecto.
     ///   - includedKeys:		Claves a incluir en la búsqueda para obtener los objetos relacionados
     ///   - cachePolicy:		Política de cache, ignorar cache por defecto
 	///   - pageSize:			Número de elementos máximos por petición, `100` por defecto
-	///   - page:				Página que se desea obtener. Si la página es 2, se recabarán los segundos `pageSize` elementos. `1` por defecto. Si se desean todos los objetos, pasar `0`.
-	///   - orderBy:			Ordenación de los resultados de la query
+	///   - page:					Página que se desea obtener. Si la página es 2, se recabarán los segundos `pageSize` elementos. `1` por defecto. Si se desean todos los objetos, pasar `0`.
+	///   - orderBy:				Ordenación de los resultados de la query
     ///   - completionQueue:	Cola en la que ejecutar el bloque al término de la operación, principal por defecto
-	public init(predicate: NSPredicate? = nil, includingKeys includedKeys: [String] = [], cachePolicy: PFCachePolicy = .ignoreCache, pageSize: Int = defaultPageSize, page: Int = 1, orderBy: [OrderBy] = [], completionQueue: DispatchQueue = .main) {
-        self.predicate = predicate
-        self.completionQueue = completionQueue
+	public init(query: PFQuery<T>,
+				includingKeys includedKeys: [String] = [],
+				cachePolicy: PFCachePolicy = .ignoreCache,
+				pageSize: Int = defaultPageSize,
+				page: Int = 1,
+				orderBy: [OrderBy] = [],
+				completionQueue: DispatchQueue = .main) {
+
+		self.completionQueue = completionQueue
         
-        self.query = PFQuery(className: T.parseClassName(), predicate: predicate)
+        self.query = query
         
         self.query.includeKeys(includedKeys)
         

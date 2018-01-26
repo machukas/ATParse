@@ -16,48 +16,54 @@ class DownloadOperationTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        if Parse.currentConfiguration() == nil {
-            
-            // Put setup code here. This method is called before the invocation of each test method in the class.
-            let parseConfiguration = ParseConfiguration.Heroku.self
-            let configuration = ParseClientConfiguration { (configuration) -> Void in
-                
-                configuration.applicationId = parseConfiguration.appID
-                configuration.clientKey = parseConfiguration.clientKey
-                configuration.server = parseConfiguration.server
-            }
-            
-            Parse.initialize(with: configuration)
-            
-        }
+		if Parse.currentConfiguration() == nil {
+			
+			// Put setup code here. This method is called before the invocation of each test method in the class.
+			
+			let bundle: Bundle = Bundle(for: type(of: self))
+			guard let filePath = bundle.path(forResource: "ParseConfiguration", ofType: "plist") else {
+				NSLog("No configuration file found"); return
+					XCTAssert(false, "No configuration file found")
+			}
+			
+			let fileURL = URL(fileURLWithPath: filePath)
+			
+			if let parseConfiguration = ParseClientConfiguration.readFrom(url: fileURL) {
+				Parse.initialize(with: parseConfiguration)
+			} else {
+				XCTAssert(false, "No configuration file found")
+			}
+		}
     }
+	
+	lazy var query: PFQuery<ATParseObjectSubclass> = {
+		return ATParseObjectSubclass.query() as! PFQuery<ATParseObjectSubclass>
+	}()
+	
+	var cachedQueryOperation: ParseClassObjectsDownloadOperation<ATParseObjectSubclass> {
+		let query: PFQuery<ATParseObjectSubclass> = self.query
+		let operation: ParseClassObjectsDownloadOperation<ATParseObjectSubclass> = ParseClassObjectsDownloadOperation(query: query, cachePolicy: .cacheElseNetwork)
+		return operation
+	}
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
-    func testCachedQuery(clearingCacheBefore: Bool = true) {
+    func cachedQuery() {
         
         let succesfullFetchExpectation = expectation(description: "Successfully fetched from cache")
-        
-        let operation: ParseClassObjectsDownloadOperation<ATParseObjectSubclass> = ParseClassObjectsDownloadOperation(cachePolicy: .cacheElseNetwork)
-        
-        if clearingCacheBefore { operation.query.clearCachedResult() }
-        
-        operation.completion = { error, objects in
-            
-            // Se ha generado la cache
-            
-            XCTAssert(operation.hasCachedResult)
-            
-            succesfullFetchExpectation.fulfill()
-        }
-        
+
+        let operation = self.cachedQueryOperation
+		operation.completion = { error, objects in
+			succesfullFetchExpectation.fulfill()
+		}
+
         let queue = OperationQueues.parse
-        
+
         queue.addOperation(operation)
-        
+
         waitForExpectations(timeout: 10.0) { error in
             if let error = error {
                 log.error("Error: \(error.localizedDescription)")
@@ -67,26 +73,27 @@ class DownloadOperationTests: XCTestCase {
     
     func testNetworkQuery() {
         let succesfullFetchExpectation = expectation(description: "Successfully fetched from network")
-        
-        let operation: ParseClassObjectsDownloadOperation<ATParseObjectSubclass> = ParseClassObjectsDownloadOperation(cachePolicy: .ignoreCache)
-        
+		
+		let query: PFQuery<ATParseObjectSubclass> = ATParseObjectSubclass.query() as! PFQuery<ATParseObjectSubclass>
+		let operation: ParseClassObjectsDownloadOperation<ATParseObjectSubclass> = ParseClassObjectsDownloadOperation(query: query, cachePolicy: .ignoreCache)
+		
         operation.query.clearCachedResult()
-        
+		
         XCTAssert(!operation.hasCachedResult)
-        
+		
         operation.completion = { error, objects in
-            
+			
             // Se ha generado la cache
-            
+			
             XCTAssert(!operation.hasCachedResult)
-            
+			
             succesfullFetchExpectation.fulfill()
         }
-        
+		
         let queue = OperationQueues.parse
-        
+		
         queue.addOperation(operation)
-        
+		
         waitForExpectations(timeout: 10.0) { error in
             if let error = error {
                 log.error("Error: \(error.localizedDescription)")
@@ -102,12 +109,9 @@ class DownloadOperationTests: XCTestCase {
     }
     
     func testPerformanceCachedQuery() {
-        // Llenamos cache
-        self.testCachedQuery()
         self.measure {
             // Put the code you want to measure the time of here.
-            self.testCachedQuery(clearingCacheBefore: false)
+            self.cachedQuery()
         }
     }
-    
 }

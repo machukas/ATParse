@@ -10,11 +10,12 @@ import Foundation
 
 /// Colas disponibles para las operaciones:
 public struct OperationQueues {
+	
     /// Cola para las operaciones relacionadas con el servidor Parse
     public static var parse: OperationQueue = {
         let queue = OperationQueue()
-        queue.name = "ParseOperationsQueue"
-        log.info("Created \(queue.description) operation queue")
+        queue.name = "com.machukas.ATParse.ParseOperationsQueue"
+        NSLog("Created \(queue.description) operation queue")
         return queue
     }()
 }

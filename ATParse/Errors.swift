@@ -22,7 +22,7 @@ public enum ObjectError: ParseError {
     case unknown
     
     public init?(withCode code: Int) {
-        log.info("Initializing ParseError with code: \(code) ")
+        NSLog("Initializing ParseError with code: \(code) ")
         switch code {
         case 200:
             return nil
@@ -55,7 +55,7 @@ public enum UserError: ParseError {
     case unknown
     
     public init?(withCode code: Int) {
-        log.info("Initializing UserError with code: \(code) ")
+        NSLog("Initializing UserError with code: \(code) ")
         switch code {
         case 101:
             self = .invalidUsernamePassword
