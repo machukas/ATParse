@@ -66,7 +66,7 @@ class DownloadOperationTests: XCTestCase {
 
         waitForExpectations(timeout: 10.0) { error in
             if let error = error {
-                log.error("Error: \(error.localizedDescription)")
+                NSLog("Error: \(error.localizedDescription)")
             }
         }
     }
@@ -96,7 +96,7 @@ class DownloadOperationTests: XCTestCase {
 		
         waitForExpectations(timeout: 10.0) { error in
             if let error = error {
-                log.error("Error: \(error.localizedDescription)")
+                NSLog("Error: \(error.localizedDescription)")
             }
         }
     }

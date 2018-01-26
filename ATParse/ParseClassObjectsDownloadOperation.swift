@@ -89,7 +89,7 @@ open class ParseClassObjectsDownloadOperation<T: PFObject>: Operation where T: P
         super.init()
         
         self.completionBlock = {
-            log.info("ParseClassObjectsDownloadOperation of type \(T.parseClassName()) finished")
+            NSLog("ParseClassObjectsDownloadOperation of type \(T.parseClassName()) finished")
         }
     }
 
@@ -148,7 +148,7 @@ open class ParseClassObjectsDownloadOperation<T: PFObject>: Operation where T: P
             self.error = ObjectError.noError()
 			
         } catch let error as NSError {
-            log.error("\(error.userInfo)")
+            NSLog("\(error.userInfo)")
             self.error = ObjectError(withCode: error.code)
         }
         

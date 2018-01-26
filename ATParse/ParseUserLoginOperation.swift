@@ -53,7 +53,7 @@ class LoginOperation: Operation {
         super.init()
         
         self.completionBlock = {
-            log.info("LoginOperation of type \(self.type) finished")
+            NSLog("LoginOperation of type \(self.type) finished")
         }
     }
     
@@ -65,7 +65,7 @@ class LoginOperation: Operation {
         case .facebook:
             self.facebookLogIn()
         case .twitter:
-            log.warning("Not yet implemented")
+            NSLog("Not yet implemented")
         }
     }
     
@@ -81,7 +81,7 @@ class LoginOperation: Operation {
                 
                 if self.error == .invalidUsernamePassword {
                     // Combinacion usuario/contraseña invalida
-                    log.error("The given combination \(username)/\(password) is not valid")
+                    NSLog("The given combination \(username)/\(password) is not valid")
                 }
                 
             } else {
@@ -103,7 +103,7 @@ class LoginOperation: Operation {
         
         guard let token = FBSDKAccessToken.current() else {
             // Si no hay token guardado, al registro
-            log.info("No previously saved token, skipping to registration")
+            NSLog("No previously saved token, skipping to registration")
             
             if signUpIfLoginFails {
                 self.facebookSignUp()
@@ -114,10 +114,10 @@ class LoginOperation: Operation {
         
         PFFacebookUtils.logInInBackground(with: token) { user, error in
             if let error = error as NSError? {
-                log.error("There was an error logging in: \(error)")
+                NSLog("There was an error logging in: \(error)")
                 self.error = UserError(withCode: error.code)
             } else if let user = user {
-                log.info("User logged in through Facebook \(user)")
+                NSLog("User logged in through Facebook \(user)")
                 self.error = UserError.noError()
             }
             
@@ -139,7 +139,7 @@ class LoginOperation: Operation {
 			PFFacebookUtils.logInInBackground(withReadPermissions: ["public_profile", "email"]) { (user, error) in
 				
 				if let error = error as NSError? {
-					log.error("Something went wrong when logging with Facebook")
+					NSLog("Something went wrong when logging with Facebook")
 					self.error = UserError(withCode: error.code)
 					
 					self.completionQueue.async {
@@ -163,7 +163,7 @@ class LoginOperation: Operation {
 							
 							userDetails.start(completionHandler: { (_, result, error) in
 								if let error = error as NSError? {
-									log.error(error.localizedDescription)
+									NSLog(error.localizedDescription)
 									self.error = UserError(withCode: error.code)
 									
 									if error.code == 8 { // Error con la petición al Facebook Graph
@@ -176,11 +176,11 @@ class LoginOperation: Operation {
 										
 										let userId = result["id"] as? String
 										
-										log.info("Details from user with id: \(userId ?? "unknown") successfully adquired")
+										NSLog("Details from user with id: \(userId ?? "unknown") successfully adquired")
 										
 										user.saveInBackground { _, error in
 											if let error = error as NSError? {
-												log.error("Error updating user \(user.description): \(error)")
+												NSLog("Error updating user \(user.description): \(error)")
 												self.error = UserError(withCode: error.code)
 											} else {
 												self.error = UserError.noError()
@@ -191,7 +191,7 @@ class LoginOperation: Operation {
 											}
 										}
 									} else {
-										log.error("Could not cast the response to a Dictionary")
+										NSLog("Could not cast the response to a Dictionary")
 										self.error = UserError(withCode: 0)
 										
 										self.completionQueue.async {
@@ -201,7 +201,7 @@ class LoginOperation: Operation {
 								}
 							})
 						} else {
-							log.error("Something occurred when creating the GraphRequest")
+							NSLog("Something occurred when creating the GraphRequest")
 							self.error = UserError(withCode: 0)
 							
 							self.completionQueue.async {
@@ -210,7 +210,7 @@ class LoginOperation: Operation {
 						}
 					} else {
 						// El usuario no es nuevo, hacer login
-						log.info("The user is not new, loggin in...")
+						NSLog("The user is not new, loggin in...")
 						
 						self.completionQueue.async {
 							self.completion?(nil, user, nil)
@@ -218,7 +218,7 @@ class LoginOperation: Operation {
 					}
 				} else {
 					// El usuario canceló el login
-					log.info("The user cancelled the Facebok logging process")
+					NSLog("The user cancelled the Facebok logging process")
 					self.error = .userCancelledFacebookLogin
 					
 					self.completionQueue.async {

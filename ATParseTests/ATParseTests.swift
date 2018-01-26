@@ -8,7 +8,6 @@
 
 import XCTest
 import Parse
-import ATLogger
 @testable import ATParse
 
 class ATParseObjectSubclass: ATParseObject, PFSubclassing {
@@ -123,14 +122,14 @@ class ATParseTests: XCTestCase {
 		let _: ATParseObjectSubclass? = self.ignoringCacheATParse.fetchObjects(withQuery: query) { (error, objects) in
 
             XCTAssert(error == nil)
-            log.info("\(objects ?? [])")
+            NSLog("\(objects ?? [])")
 
             succesfullFetchExpectation.fulfill()
         }
 
         waitForExpectations(timeout: 20.0) { error in
             if let error = error {
-                log.error("Error: \(error.localizedDescription)")
+                NSLog("Error: \(error.localizedDescription)")
             }
         }
     }
@@ -145,14 +144,14 @@ class ATParseTests: XCTestCase {
 			XCTAssert(error == nil)
 			XCTAssert(objects!.count > 1000)
 
-			log.info("\(objects ?? [])")
+			NSLog("\(objects ?? [])")
 
 			succesfullFetchExpectation.fulfill()
 		}
 
 		waitForExpectations(timeout: 20.0) { error in
 			if let error = error {
-				log.error("Error: \(error.localizedDescription)")
+				NSLog("Error: \(error.localizedDescription)")
 			}
 		}
 	}
@@ -167,14 +166,14 @@ class ATParseTests: XCTestCase {
 			XCTAssert(error == nil)
 			XCTAssert(objects!.count == 100)
 			
-			log.info("\(objects ?? [])")
+			NSLog("\(objects ?? [])")
 			
 			succesfullFetchExpectation.fulfill()
 		}
 		
 		waitForExpectations(timeout: 20.0) { error in
 			if let error = error {
-				log.error("Error: \(error.localizedDescription)")
+				NSLog("Error: \(error.localizedDescription)")
 			}
 		}
 	}
@@ -193,7 +192,7 @@ class ATParseTests: XCTestCase {
 
         waitForExpectations(timeout: 20.0) { error in
             if let error = error {
-                log.error("Error: \(error.localizedDescription)")
+                NSLog("Error: \(error.localizedDescription)")
             }
         }
     }
