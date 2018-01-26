@@ -13,8 +13,6 @@ target 'ATParse' do
 
   pod 'Parse'
   
-  pod 'ATLogger', :git => 'https://github.com/machukas/ATLogger.git'
-  
   pod 'ParseFacebookUtilsV4'
   
   # Disable Code Coverage for Pods projects except MyPod
