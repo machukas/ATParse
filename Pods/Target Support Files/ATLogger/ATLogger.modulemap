@@ -1,0 +1,6 @@
+framework module ATLogger {
+  umbrella header "ATLogger-umbrella.h"
+
+  export *
+  module * { export * }
+}

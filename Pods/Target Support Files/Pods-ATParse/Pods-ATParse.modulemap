@@ -1,0 +1,6 @@
+framework module Pods_ATParse {
+  umbrella header "Pods-ATParse-umbrella.h"
+
+  export *
+  module * { export * }
+}
