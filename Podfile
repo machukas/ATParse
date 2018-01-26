@@ -13,7 +13,7 @@ target 'ATParse' do
 
   pod 'Parse'
   
-  pod 'ParseFacebookUtilsV4'
+  pod 'Parse/FacebookUtils'
   
   # Disable Code Coverage for Pods projects except MyPod
   post_install do |installer_representation|

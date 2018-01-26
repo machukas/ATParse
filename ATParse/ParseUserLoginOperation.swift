@@ -8,7 +8,6 @@
 
 import Foundation
 import Parse
-import ParseFacebookUtilsV4
 
 /// Tipos de login
 ///
