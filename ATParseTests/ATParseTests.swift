@@ -148,7 +148,7 @@ class ATParseTests: XCTestCase {
 		
 		waitForExpectations(timeout: 20.0) { error in
 			if let error = error {
-				log.error("Error: \(error.localizedDescription)")
+				log.error(error: error)
 			}
 		}
 	}
@@ -169,7 +169,7 @@ class ATParseTests: XCTestCase {
 		
 		waitForExpectations(timeout: 20.0) { error in
 			if let error = error {
-				log.error("Error: \(error.localizedDescription)")
+				log.error(error: error)
 			}
 		}
 	}
@@ -188,7 +188,7 @@ class ATParseTests: XCTestCase {
 
         waitForExpectations(timeout: 20.0) { error in
             if let error = error {
-                log.error("Error: \(error.localizedDescription)")
+                log.error(error: error)
             }
         }
     }
