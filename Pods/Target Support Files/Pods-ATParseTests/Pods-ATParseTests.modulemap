@@ -1,6 +1,0 @@
-framework module Pods_ATParseTests {
-  umbrella header "Pods-ATParseTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
