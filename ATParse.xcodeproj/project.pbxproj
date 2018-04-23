@@ -58,7 +58,6 @@
 		2E5EC8E5201A11C600237C88 /* ParseConfiguration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ParseConfiguration.plist; sourceTree = "<group>"; };
 		2E5EC8E8201B1AFD00237C88 /* ATParseErrorsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATParseErrorsTest.swift; sourceTree = "<group>"; };
 		EA09D2D41E1D6171008753B2 /* ATParseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATParseObject.swift; sourceTree = "<group>"; };
-		EA7EBB641E24F17A00EFD183 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		EA7EBB691E2510AB00EFD183 /* DownloadOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadOperationTests.swift; sourceTree = "<group>"; };
 		EA7EBB6D1E25358000EFD183 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = SOURCE_ROOT; };
 		EAE1277D1E0A8605009F41F5 /* ATParse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ATParse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,7 +165,6 @@
 			children = (
 				EAE127811E0A8605009F41F5 /* Info.plist */,
 				EAE127801E0A8605009F41F5 /* ATParse.h */,
-				EA7EBB641E24F17A00EFD183 /* .travis.yml */,
 				EA7EBB6D1E25358000EFD183 /* CHANGELOG.md */,
 				2E5EC8E2201A0FA400237C88 /* .swiftlint.yml */,
 				2E5EC8E5201A11C600237C88 /* ParseConfiguration.plist */,
@@ -225,6 +223,7 @@
 				EAE127821E0A8605009F41F5 /* Sources */,
 				EAE127831E0A8605009F41F5 /* Frameworks */,
 				EAE127841E0A8605009F41F5 /* Resources */,
+				2E3A01C3208E295D00057072 /* Carthage Copy */,
 			);
 			buildRules = (
 			);
@@ -319,6 +318,26 @@
 				"$(TARGET_BUILD_DIR)/$(FRAMEWORKS_FOLDER_PATH)/FBSDKLoginKit.framework",
 				"$(TARGET_BUILD_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Parse.framework",
 				"$(TARGET_BUILD_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ParseFacebookUtilsV4.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		2E3A01C3208E295D00057072 /* Carthage Copy */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/ATLibrary.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Bolts.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/FBSDKCoreKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/FBSDKLoginKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Parse.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ParseFacebookUtilsV4.framework",
+			);
+			name = "Carthage Copy";
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -508,7 +527,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.machukas.ATParse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aratech.ATParse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -534,7 +553,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.machukas.ATParse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aratech.ATParse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
