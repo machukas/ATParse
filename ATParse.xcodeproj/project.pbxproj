@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E3A0165208E1F5600057072 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3A015B208E1F5500057072 /* Bolts.framework */; };
+		2E3A0167208E1F5600057072 /* ATLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3A015D208E1F5500057072 /* ATLibrary.framework */; };
+		2E3A016A208E1F5600057072 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3A0160208E1F5500057072 /* FBSDKLoginKit.framework */; };
+		2E3A016B208E1F5600057072 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3A0161208E1F5500057072 /* FBSDKCoreKit.framework */; };
+		2E3A016C208E1F5600057072 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3A0162208E1F5600057072 /* ParseFacebookUtilsV4.framework */; };
+		2E3A016D208E1F5600057072 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3A0163208E1F5600057072 /* Parse.framework */; };
+		2E3A016F208E23B300057072 /* ATLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3A015D208E1F5500057072 /* ATLibrary.framework */; };
+		2E3A0170208E23B300057072 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3A015B208E1F5500057072 /* Bolts.framework */; };
+		2E3A0171208E23B300057072 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3A0161208E1F5500057072 /* FBSDKCoreKit.framework */; };
+		2E3A0172208E23B300057072 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3A0160208E1F5500057072 /* FBSDKLoginKit.framework */; };
+		2E3A0173208E23B300057072 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3A0163208E1F5600057072 /* Parse.framework */; };
+		2E3A0174208E23B300057072 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3A0162208E1F5600057072 /* ParseFacebookUtilsV4.framework */; };
 		2E5EC8E1201A0C9500237C88 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EC8E0201A0C9500237C88 /* Configuration.swift */; };
 		2E5EC8E3201A0FA500237C88 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2E5EC8E2201A0FA400237C88 /* .swiftlint.yml */; };
 		2E5EC8E6201A11C600237C88 /* ParseConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E5EC8E5201A11C600237C88 /* ParseConfiguration.plist */; };
@@ -22,7 +34,6 @@
 		EAE1279F1E0A94B8009F41F5 /* ParseUserLoginOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE1279E1E0A94B8009F41F5 /* ParseUserLoginOperation.swift */; };
 		EAE127A11E0AA649009F41F5 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE127A01E0AA649009F41F5 /* API.swift */; };
 		EAE127A31E0AA901009F41F5 /* ParseOperationQueues.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE127A21E0AA901009F41F5 /* ParseOperationQueues.swift */; };
-		EAE127C01E0AEA1A009F41F5 /* ATParse.podspec in Resources */ = {isa = PBXBuildFile; fileRef = EAE127BF1E0AEA1A009F41F5 /* ATParse.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +47,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E3A015B208E1F5500057072 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Carthage/Build/iOS/Bolts.framework; sourceTree = "<group>"; };
+		2E3A015D208E1F5500057072 /* ATLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATLibrary.framework; path = Carthage/Build/iOS/ATLibrary.framework; sourceTree = "<group>"; };
+		2E3A0160208E1F5500057072 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Carthage/Build/iOS/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		2E3A0161208E1F5500057072 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = Carthage/Build/iOS/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		2E3A0162208E1F5600057072 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtilsV4.framework; path = Carthage/Build/iOS/ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		2E3A0163208E1F5600057072 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Carthage/Build/iOS/Parse.framework; sourceTree = "<group>"; };
 		2E5EC8E0201A0C9500237C88 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		2E5EC8E2201A0FA400237C88 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		2E5EC8E5201A11C600237C88 /* ParseConfiguration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ParseConfiguration.plist; sourceTree = "<group>"; };
@@ -50,13 +67,11 @@
 		EAE127861E0A8605009F41F5 /* ATParseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATParseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE1278B1E0A8605009F41F5 /* ATParseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATParseTests.swift; sourceTree = "<group>"; };
 		EAE1278D1E0A8605009F41F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EAE127971E0A8A9F009F41F5 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		EAE1279A1E0A8BD3009F41F5 /* ParseClassObjectsDownloadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClassObjectsDownloadOperation.swift; sourceTree = "<group>"; };
 		EAE1279C1E0A8E8F009F41F5 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		EAE1279E1E0A94B8009F41F5 /* ParseUserLoginOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseUserLoginOperation.swift; sourceTree = "<group>"; };
 		EAE127A01E0AA649009F41F5 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		EAE127A21E0AA901009F41F5 /* ParseOperationQueues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseOperationQueues.swift; sourceTree = "<group>"; };
-		EAE127BF1E0AEA1A009F41F5 /* ATParse.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ATParse.podspec; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.python; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +79,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E3A016F208E23B300057072 /* ATLibrary.framework in Frameworks */,
+				2E3A0170208E23B300057072 /* Bolts.framework in Frameworks */,
+				2E3A0171208E23B300057072 /* FBSDKCoreKit.framework in Frameworks */,
+				2E3A0172208E23B300057072 /* FBSDKLoginKit.framework in Frameworks */,
+				2E3A0173208E23B300057072 /* Parse.framework in Frameworks */,
+				2E3A0174208E23B300057072 /* ParseFacebookUtilsV4.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +92,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E3A0165208E1F5600057072 /* Bolts.framework in Frameworks */,
+				2E3A0167208E1F5600057072 /* ATLibrary.framework in Frameworks */,
+				2E3A016A208E1F5600057072 /* FBSDKLoginKit.framework in Frameworks */,
+				2E3A016B208E1F5600057072 /* FBSDKCoreKit.framework in Frameworks */,
+				2E3A016C208E1F5600057072 /* ParseFacebookUtilsV4.framework in Frameworks */,
+				2E3A016D208E1F5600057072 /* Parse.framework in Frameworks */,
 				EAE127871E0A8605009F41F5 /* ATParse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,12 +105,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E3A013F208E07FF00057072 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E3A015D208E1F5500057072 /* ATLibrary.framework */,
+				2E3A015B208E1F5500057072 /* Bolts.framework */,
+				2E3A0161208E1F5500057072 /* FBSDKCoreKit.framework */,
+				2E3A0160208E1F5500057072 /* FBSDKLoginKit.framework */,
+				2E3A0163208E1F5600057072 /* Parse.framework */,
+				2E3A0162208E1F5600057072 /* ParseFacebookUtilsV4.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EAE127731E0A8605009F41F5 = {
 			isa = PBXGroup;
 			children = (
 				EAE1277F1E0A8605009F41F5 /* ATParse */,
 				EAE1278A1E0A8605009F41F5 /* ATParseTests */,
 				EAE1277E1E0A8605009F41F5 /* Products */,
+				2E3A013F208E07FF00057072 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,8 +164,6 @@
 		EAE127981E0A8AA5009F41F5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EAE127971E0A8A9F009F41F5 /* Podfile */,
-				EAE127BF1E0AEA1A009F41F5 /* ATParse.podspec */,
 				EAE127811E0A8605009F41F5 /* Info.plist */,
 				EAE127801E0A8605009F41F5 /* ATParse.h */,
 				EA7EBB641E24F17A00EFD183 /* .travis.yml */,
@@ -167,7 +206,8 @@
 				EAE127791E0A8605009F41F5 /* Frameworks */,
 				EAE1277A1E0A8605009F41F5 /* Headers */,
 				EAE1277B1E0A8605009F41F5 /* Resources */,
-				2E5EC8E4201A100C00237C88 /* ShellScript */,
+				2E5EC8E4201A100C00237C88 /* Swift Lint */,
+				2E3A0150208E081500057072 /* Carthage Copy */,
 			);
 			buildRules = (
 			);
@@ -203,7 +243,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = AraTech;
 				TargetAttributes = {
 					EAE1277C1E0A8605009F41F5 = {
@@ -213,6 +253,7 @@
 					};
 					EAE127851E0A8605009F41F5 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = A648Z79XVS;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -243,7 +284,6 @@
 			files = (
 				2E5EC8E6201A11C600237C88 /* ParseConfiguration.plist in Resources */,
 				2E5EC8E3201A0FA500237C88 /* .swiftlint.yml in Resources */,
-				EAE127C01E0AEA1A009F41F5 /* ATParse.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,13 +298,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2E5EC8E4201A100C00237C88 /* ShellScript */ = {
+		2E3A0150208E081500057072 /* Carthage Copy */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/ATLibrary.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Bolts.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/FBSDKCoreKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/FBSDKLoginKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Parse.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ParseFacebookUtilsV4.framework",
+			);
+			name = "Carthage Copy";
+			outputPaths = (
+				"$(TARGET_BUILD_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ATLibrary.framework",
+				"$(TARGET_BUILD_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Bolts.framework",
+				"$(TARGET_BUILD_DIR)/$(FRAMEWORKS_FOLDER_PATH)/FBSDKCoreKit.framework",
+				"$(TARGET_BUILD_DIR)/$(FRAMEWORKS_FOLDER_PATH)/FBSDKLoginKit.framework",
+				"$(TARGET_BUILD_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Parse.framework",
+				"$(TARGET_BUILD_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ParseFacebookUtilsV4.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		2E5EC8E4201A100C00237C88 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Swift Lint";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +389,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -329,6 +397,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -381,6 +450,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -388,6 +458,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -423,13 +494,16 @@
 		EAE127921E0A8605009F41F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ATParse/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -446,13 +520,16 @@
 		EAE127931E0A8605009F41F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ATParse/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -469,10 +546,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A648Z79XVS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ATParseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.machukas.ATParseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
@@ -482,10 +567,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A648Z79XVS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ATParseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.machukas.ATParseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};

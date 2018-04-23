@@ -58,7 +58,7 @@ open class ATParse {
 								page: Int = 1,
 								orderedBy orderBy: [OrderBy] = [],
 								completionQueue: DispatchQueue = .main,
-								completion: FetchPFObjectsResult<T>? = nil)  -> T? where T: PFSubclassing {
+								completion: FetchPFObjectsResult<T>? = nil) -> T? where T: PFSubclassing {
         
 		let operation: ParseClassObjectsDownloadOperation<T> =
 			ParseClassObjectsDownloadOperation<T>(query: query,
