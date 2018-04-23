@@ -7,9 +7,9 @@
 //
 
 import Foundation
-import ATLogger
+import ATLibrary
 
-internal var log: ATLogger = ATLogger(withLevel: .error)
+internal var log: Logger = Logger(withLevel: .error)
 
 public protocol ParseError: Error {
     init?(withCode code: Int)

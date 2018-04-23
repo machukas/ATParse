@@ -13,6 +13,8 @@
 		2E3A0120208DC7C700057072 /* ATLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3A011A208DC7C700057072 /* ATLibrary.framework */; };
 		2E3A0121208DC7C700057072 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3A011B208DC7C700057072 /* Parse.framework */; };
 		2E3A0122208DC7C700057072 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3A011C208DC7C700057072 /* ParseTwitterUtils.framework */; };
+		2E3A0125208DCCEA00057072 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3A011B208DC7C700057072 /* Parse.framework */; };
+		2E3A0126208DD09700057072 /* ATLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3A011A208DC7C700057072 /* ATLibrary.framework */; };
 		2E6781D91EDC01E6008938BC /* ATSyncEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6781D81EDC01E6008938BC /* ATSyncEngine.swift */; };
 		2E6781DF1EDD55DB008938BC /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6781DE1EDD55DB008938BC /* CoreDataTests.swift */; };
 		EA09D2D51E1D6171008753B2 /* ATParseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA09D2D41E1D6171008753B2 /* ATParseObject.swift */; };
@@ -81,6 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E3A0126208DD09700057072 /* ATLibrary.framework in Frameworks */,
+				2E3A0125208DCCEA00057072 /* Parse.framework in Frameworks */,
 				EAE127871E0A8605009F41F5 /* ATParse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,7 +236,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = AraTech;
 				TargetAttributes = {
 					EAE1277C1E0A8605009F41F5 = {
@@ -242,6 +246,7 @@
 					};
 					EAE127851E0A8605009F41F5 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = A648Z79XVS;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -369,15 +374,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -422,15 +435,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -513,6 +534,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = A648Z79XVS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ATParseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.machukas.ATParseTests;
@@ -525,6 +551,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = A648Z79XVS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ATParseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.machukas.ATParseTests;
