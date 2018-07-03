@@ -1,1 +1,1 @@
-![](https://travis-ci.org/machukas/ATParse.svg?branch=master)
+# Moved to => https://github.com/AraTechnologyES/aratech-ios-parse
